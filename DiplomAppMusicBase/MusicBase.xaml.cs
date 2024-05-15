@@ -33,7 +33,5 @@ namespace DiplomAppMusicBase
             Manager.MFrame.Navigate(new Pages.Autorisation());
             Manager.GridBackground = FindName("GridBackground") as Grid;
         }
-
-        
     }
 }

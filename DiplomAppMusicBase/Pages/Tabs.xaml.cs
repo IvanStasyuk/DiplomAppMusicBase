@@ -38,10 +38,10 @@ namespace DiplomAppMusicBase.Pages
 
             if (Manager.IsGuest == true)
             {
-                //PeopleBox.IsEnabled = false;
-                //AddOrder.IsEnabled = false;
-                //GoToTirage.IsEnabled = false;
-                //GoToAlbom.IsEnabled = false;
+                PeopleBox.IsEnabled = false;
+                AddOrder.IsEnabled = false;
+                GoToTirage.IsEnabled = false;
+                GoToAlbom.IsEnabled = false;
             }
             else if (Manager.IsGuest == false)
             {
@@ -128,6 +128,7 @@ namespace DiplomAppMusicBase.Pages
             await Task.Delay(500);
             if (Manager.MFrame.CanGoBack)
             {
+
                 Manager.MFrame.GoBack();
             }
             else

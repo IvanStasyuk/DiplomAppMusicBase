@@ -44,6 +44,9 @@ namespace DiplomAppMusicBase.Pages
                 }
                 RandomCaptcha.Text += randomChar;
             }
+            TBlogin.Text = "";
+            TBPassword.Text = "";
+            CaptchaInput.Text = "";
         }
 
         private async void RegButton_Click(object sender, RoutedEventArgs e)
@@ -108,22 +111,20 @@ namespace DiplomAppMusicBase.Pages
                         case 1:
                             MessageBox.Show("Здравствуй, Администратор " + UserVhod.NameUser + "!", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                             Manager.MFrame.Navigate(new Pages.Tabs());
-                            Manager.IsGuest = false;
+                            Manager.IsRole = 1;
                             break;
                         case 2:
                             MessageBox.Show("Здравствуй, Менеджер " + UserVhod.NameUser + "!", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                             Manager.MFrame.Navigate(new Pages.Tabs());
-                            Manager.IsGuest = false;
+                            Manager.IsRole = 2;
                             break;
                         case 3:
                             MessageBox.Show("Здравствуй, Клиент " + UserVhod.NameUser + "!", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
                             Manager.MFrame.Navigate(new Pages.Tabs());
-                            Manager.IsGuest = false;
+                            Manager.IsRole = 3;
                             break;
                         default:
                             MessageBox.Show("Данные не обнаружены " + UserVhod.NameUser + "!", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Information);
-                            Manager.MFrame.Navigate(new Pages.Tabs());
-                            Manager.IsGuest = false;
                             break;
                     }
                 }

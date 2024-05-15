@@ -26,7 +26,41 @@ namespace DiplomAppMusicBase.Pages
             var uriMainFon = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMainFon);
             ListMusicStudioFon.Background = new ImageBrush(bitmapMain);
-            //ListOrdersGrid.ItemsSource = MusicStudioBaseEntities.GetContext().Orders.ToList();
+            ListMusicStudiosGrid.ItemsSource = MusicStudioBaseEntities.GetContext().MusicStudios.ToList();
+        }
+
+        private async void ListBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (Manager.MFrame.CanGoBack)
+            {
+                await Task.Delay(500);
+                Manager.MFrame.GoBack();
+            }
+            else
+            {
+                Manager.MFrame = null;
+            }
+        }
+
+        private async void ListDelete_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(500);
+            var MusicStudioRemoving = ListMusicStudiosGrid.SelectedItems.Cast<MusicStudios>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить {MusicStudioRemoving.Count()} элементов",
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MusicStudioBaseEntities.GetContext().MusicStudios.RemoveRange(MusicStudioRemoving);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    ListMusicStudiosGrid.ItemsSource = MusicStudioBaseEntities.GetContext().MusicStudios.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

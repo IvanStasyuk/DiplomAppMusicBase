@@ -9,6 +9,54 @@
       Title="ListMusicStudios">
 
     <Grid x:Name="ListMusicStudioFon">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="5" Grid.RowSpan="4">
+            <DataGrid x:Name="ListMusicStudiosGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название студии" Binding="{Binding NameStudio}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Краткое название студии" Binding="{Binding MinName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Имя администратора" Binding="{Binding NameAdministrator}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Имя бухгалтера" Binding="{Binding NameAccountant}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Город" Binding="{Binding City}"></DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextDecorations="Underline" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="FontSize" Value="25"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4">
+            <Button x:Name="ListBack" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Row="2" Grid.ColumnSpan="2" Click="ListBack_Click" Margin="15"></Button>
+            <Button x:Name="ListDelete" Content="Удалить" Style="{StaticResource ButtonDel}" Grid.Row="2" Grid.Column="1" Click="ListDelete_Click" Grid.ColumnSpan="3" Margin="15"></Button>
+        </StackPanel>
     </Grid>
 </Page>

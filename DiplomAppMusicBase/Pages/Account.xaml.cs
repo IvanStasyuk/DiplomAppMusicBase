@@ -27,6 +27,22 @@ namespace DiplomAppMusicBase.Pages
             var bitmapMain = new BitmapImage(uriMain);
             PeopleFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Users.ToList();
+
+            if (Manager.IsRole == 3)
+            {
+                AddNewProducer.IsEnabled = false;
+                AddNewMusicStudio.IsEnabled = false;
+            }
+            else if (Manager.IsRole == 2)
+            {
+                AddNewProducer.IsEnabled = false;
+                AddNewMusicStudio.IsEnabled = true;
+            }
+            else if (Manager.IsRole == 1)
+            {
+                AddNewProducer.IsEnabled = true;
+                AddNewMusicStudio.IsEnabled = true;
+            }
         }
 
         private async void CanToGo_Click(object sender, RoutedEventArgs e)
