@@ -1,0 +1,99 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.MakeContract"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="MakeContract">
+    <Grid Background="White" x:Name="ContractFon">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Название договора"></TextBlock>
+                <TextBox x:Name="NameContractTB"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Имя исполнителя"></TextBlock>
+                <TextBox x:Name="NameSingerTB"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Фамилия исполнителя"></TextBlock>
+                <TextBox x:Name="FamiliaSingerTB"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Отчество исполнителя"></TextBlock>
+                <TextBox x:Name="PatronymicSingerTB"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Студия звукозаписи"></TextBlock>
+                <TextBox x:Name="MusicStudioTB"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Имя продюсера"></TextBlock>
+                <TextBox x:Name="NameProducerTB"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="День рождения исполнителя"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox x:Name="DayBirthdayTB" IsEnabled="False" GotFocus="DayBirthdayTB_GotFocus"></TextBox>
+                    <DatePicker x:Name="PickerDayBirthday" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerDayBirthday_SelectedDateChanged"></DatePicker>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Количество композиций"></TextBlock>
+                <TextBox x:Name="CountCompositionsTB"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Опыт работы"></TextBlock>
+                <TextBox x:Name="ExperienceTB"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Дата начала сотрудничества"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox x:Name="DateStartTB" GotFocus="DateStartTB_GotFocus" IsEnabled="False"></TextBox>
+                    <DatePicker x:Name="PickerDateStart" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerDateStart_SelectedDateChanged"></DatePicker>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Дата конца сотрудничества"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBox x:Name="DateEndTB" GotFocus="DateEndTB_GotFocus" IsEnabled="False"></TextBox>
+                    <DatePicker x:Name="PickerDateEnd" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerDateEnd_SelectedDateChanged"></DatePicker>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Цена"></TextBlock>
+                <TextBox x:Name="ProfitTB"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="SaveContract" Visibility="Visible" Content="Сохранить" Style="{StaticResource ButtonEnter}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="SaveContract_Click"></Button>
+            <Button x:Name="BackContract" Visibility="Visible" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="BackContract_Click"></Button>
+            <Button x:Name="ListContract" Visibility="Visible" Content="Список договоров" Style="{StaticResource ButtonAdd}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ListContract_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="AddContractBT" Visibility="Hidden" Content="Добавить" Style="{StaticResource ButtonEnter}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="AddContractBT_Click"></Button>
+            <Button x:Name="RedContractBT" Visibility="Hidden" Content="Редактировать" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="RedContractBT_Click"></Button>
+            <Button x:Name="PrintContractBT" Visibility="Hidden" Content="Распечатать" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="PrintContractBT_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

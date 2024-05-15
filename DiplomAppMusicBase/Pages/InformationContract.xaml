@@ -1,0 +1,90 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.InformationContract"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="InformationContract">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Название договора"></TextBlock>
+                <TextBlock x:Name="NameInfoContract" Text=""></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Имя исполнителя"></TextBlock>
+                <TextBlock x:Name="NameSingerInfo"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Фамилия исполнителя"></TextBlock>
+                <TextBlock x:Name="FamiliaSingerInfo"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Отчество исполнителя"></TextBlock>
+                <TextBlock x:Name="PatronymicSingerInfo"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Студия звукозаписи"></TextBlock>
+                <TextBlock x:Name="MusicStudioInfo"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Имя продюсера"></TextBlock>
+                <TextBlock x:Name="NameProducerInfo"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="День рождения исполнителя"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="DayBirthdayInfo" IsEnabled="False"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Количество композиций"></TextBlock>
+                <TextBlock x:Name="CountCompositionsInfo"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="5">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Опыт работы"></TextBlock>
+                <TextBlock x:Name="ExperienceInfo"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Дата начала сотрудничества"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="DateStartInfo" IsEnabled="False"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Дата конца сотрудничества"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="DateEndInfo" IsEnabled="False"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
+                <TextBlock Text="Цена"></TextBlock>
+                <TextBlock x:Name="ProfitInfo"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="BackContract" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="BackContract_Click"></Button>
+            <Button x:Name="PrintSave" Content="Печать" Style="{StaticResource ButtonEnter}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="PrintSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

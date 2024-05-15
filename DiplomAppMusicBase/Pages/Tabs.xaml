@@ -1,0 +1,415 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.Tabs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Tabs">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="PeopleBox" Width="200" Height="150" Content="Учётная запись" Style="{StaticResource ButtonSettings}" Grid.Column="1" Grid.RowSpan="1" Click="PeopleBox_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="ListenInstruments" Width="200" Height="150" Content="Прослушать инструменты" Style="{StaticResource ButtonSettings}" Grid.Column="2" Grid.RowSpan="1" Click="ListenInstruments_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="AddOrder" Width="200" Height="150" Content="Сделать заказ" Style="{StaticResource ButtonSettings}" Grid.Column="3" Grid.RowSpan="1" Click="AddOrder_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="AddDogovor" Width="200" Height="150" Content="Подписать договор" Style="{StaticResource ButtonSettings}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Click="AddDogovor_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="SettingsBtn" Width="200" Height="150" Content="Настройки" Style="{StaticResource ButtonSettings}" Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" Click="SettingsBtn_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="GoToTirage" Width="200" Height="150" Content="Выпустить в тираж" Style="{StaticResource ButtonSettings}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Click="GoToTirage_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="GoToAlbom" Width="200" Height="150" Content="Добавить альбом" Style="{StaticResource ButtonSettings}" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Click="GoToAlbom_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Cyan" Width="200" Height="150">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="175" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="125" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="165" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="115" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Width" To="200" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="Height" To="150" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="CanToGo" Content="Вернуться" Grid.Row="4" Grid.Column="2" Style="{StaticResource ButtonAdd}" Click="CanToGo_Click"></Button>
+        <Button x:Name="OProgramm" Content="О программе" Grid.Row="4" Grid.Column="4" Style="{StaticResource ButtonAdd}" Click="OProgramm_Click"></Button>
+        <Button x:Name="ListSingers" Content="Список исполнителей" Style="{StaticResource ButtonAdd}" Click="ListSingers_Click" Grid.Row="4" Margin="10"></Button>
+    </Grid>
+</Page>

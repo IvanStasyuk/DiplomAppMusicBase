@@ -1,0 +1,31 @@
+﻿<Window x:Class="DiplomAppMusicBase.MainWindow" Icon="Resources/studio.png"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomAppMusicBase"
+        mc:Ignorable="d"
+        Title="Студия звукозаписи MusicBase" Height="1080" Width="1920">
+    <Grid x:Name="GridBackground">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Frame x:Name="MFrame" NavigationUIVisibility="Hidden" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="4"></Frame>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="30">
+            <Image Source="pack://application:,,,/Resources/studio.png"></Image>
+        </StackPanel>
+        <Image x:Name="LogoStart" Source="pack://application:,,,/Resources/TextLogo.png" Grid.Column="1" Grid.ColumnSpan="3" Visibility="Visible"></Image>
+        <TextBlock x:Name="TextStart" Text="Выберите категорию:" Grid.Column="1" Grid.ColumnSpan="3" Visibility="Hidden"></TextBlock>
+    </Grid>
+</Window>

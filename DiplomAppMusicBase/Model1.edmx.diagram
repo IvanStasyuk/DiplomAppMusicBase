@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="05549e948df54ed3b4f829a7475a9c08" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Alboms" Width="1.5" PointX="7.5" PointY="1.5" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Contracts" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.MusicStudios" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Orders" Width="1.5" PointX="3" PointY="16.125" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Producers" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Roles" Width="1.5" PointX="5.75" PointY="6.375" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Singers" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Tirage" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="MusicStudioBaseModel.Users" Width="1.5" PointX="8" PointY="6" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Alboms_Singers" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Singers_Contracts" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Producers_MusicStudios1" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Singers_Orders" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Singers_Producers" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Users_Roles" />
+        <AssociationConnector Association="MusicStudioBaseModel.FK_Singers_Tirage" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

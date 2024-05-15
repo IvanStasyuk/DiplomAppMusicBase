@@ -1,0 +1,57 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.MakeAlbom"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="MakeAlbom">
+
+    <Grid x:Name="AlbomFon">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Название альбома"/>
+                <TextBlock Text="Имя исполнителя"/>
+                <TextBlock Text="Фамилия исполнителя"/>
+                <TextBlock Text="Отчество исполнителя"/>
+                <TextBlock Text="Количество композиций"/>
+                <TextBlock Text="Жанр"/>
+                <TextBlock Text="Год выхода"/>
+                <TextBlock Text="ID исполнителя"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="NameAlbomAdd" Margin="10"/>
+                <TextBox x:Name="NameSingerAlbom"/>
+                <TextBox x:Name="FamiliaSingerAlbom" Margin="15"/>
+                <TextBox x:Name="PatronymicSingerAlbom"/>
+                <TextBox x:Name="CountCompositionsAlbom" Margin="10"/>
+                <TextBox x:Name="Janr" Margin="10"/>
+                <TextBox x:Name="YearRelease" IsEnabled="False"/>
+                <TextBox x:Name="IDSingerAdd" Margin="10"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
+                <DatePicker x:Name="DateReleasePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="DateReleasePicker_SelectedDateChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="SaveAlbom" Content="Добавить" Style="{StaticResource ButtonEnter}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="SaveAlbom_Click" ></Button>
+            <Button x:Name="BackAlbom" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="BackAlbom_Click" ></Button>
+            <Button x:Name="ListAlbom" Content="Список альбомов" Style="{StaticResource ButtonAdd}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ListAlbom_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

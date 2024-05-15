@@ -1,0 +1,53 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.MakeProducer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="MakeProducer">
+
+    <Grid x:Name="AddProducerFon">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Имя продюсера"/>
+                <TextBlock Text="Фамилия продюсера"/>
+                <TextBlock Text="Отчество продюсера"/>
+                <TextBlock Text="Никнейм"/>
+                <TextBlock Text="День рождения"/>
+                <TextBlock Text="Студия звукозаписи"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="NameProducer" Margin="10"/>
+                <TextBox x:Name="FamiliaProducer"/>
+                <TextBox x:Name="PatronymicProducer" Margin="15"/>
+                <TextBox x:Name="NicknameProducer" Margin="10"/>
+                <TextBox x:Name="YearBirthdayProducer" IsEnabled="False"/>
+                <TextBox x:Name="NameMusicStudio" Margin="10"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
+                <DatePicker x:Name="PickerBirthday" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerBirthday_SelectedDateChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="SaveProducer" Content="Добавить" Style="{StaticResource ButtonEnter}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="SaveProducer_Click" ></Button>
+            <Button x:Name="BackProducer" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="BackProducer_Click" ></Button>
+            <Button x:Name="ListProducers" Content="Список продюсеров" Style="{StaticResource ButtonAdd}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ListProducers_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

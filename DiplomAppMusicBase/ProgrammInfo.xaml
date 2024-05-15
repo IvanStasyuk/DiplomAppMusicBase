@@ -1,0 +1,12 @@
+﻿<Window x:Class="DiplomAppMusicBase.ProgrammInfo" Icon="/Resources/studio.png"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomAppMusicBase"
+        mc:Ignorable="d"
+        Title="О программе" Height="500" Width="500">
+    <Grid Background="Aquamarine">
+        <TextBox Text="Студент 402гр-ИСП Стасюк Иван Сергеевич. Все права защищены." TextWrapping="WrapWithOverflow" TextAlignment="Justify" Height="433"></TextBox>
+    </Grid>
+</Window>

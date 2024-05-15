@@ -1,0 +1,46 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.RegistrationSinger"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="RegistrationSinger">
+
+    <Grid x:Name="SingerRegFon">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="25">
+            <TextBlock Text="Имя исполнителя"></TextBlock>
+            <TextBox x:Name="NameSingerReg"></TextBox>
+            <TextBlock Text="Фамилия исполнителя"></TextBlock>
+            <TextBox x:Name="FamiliaSingerReg"></TextBox>
+            <TextBlock Text="Отчество исполнителя"></TextBlock>
+            <TextBox x:Name="PatronymicSingerReg"></TextBox>
+            <TextBlock Text="Никнейм"></TextBlock>
+            <TextBox x:Name="NicknameSinger"></TextBox>
+            <TextBlock Text="День рождения"></TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="YearBirthdaySingerReg" IsEnabled="False"></TextBox>
+                <DatePicker x:Name="yearbirthdaysinger" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="yearbirthdaysinger_SelectedDateChanged"/>
+            </StackPanel>
+            <TextBlock Text="ID договора"></TextBlock>
+            <TextBox x:Name="IDContractReg"></TextBox>
+            <TextBlock Text="ID продюсера"></TextBlock>
+            <TextBox x:Name="IDProducerReg"></TextBox>
+            <TextBlock Text="ID тиража"></TextBlock>
+            <TextBox x:Name="IDTirageReg"></TextBox>
+            <TextBlock Text="ID заказа"></TextBlock>
+            <TextBox x:Name="IDOrderReg"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30">
+            <Button x:Name="RegButtonSingerBT" Content="Зарегистрироваться" Style="{StaticResource ButtonEnter}" Click="RegButtonSingerBT_Click" Margin="10"></Button>
+            <Button x:Name="ListBack" Content="Вернуться" Style="{StaticResource ButtonAdd}" Click="ListBack_Click" Margin="10"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,380,500,0">
+            <Button x:Name="ContractInfo" Content="Список договоров" Height="35" Style="{StaticResource ButtonSettings}" Margin="0,0,0,50" Click="ContractInfo_Click"></Button>
+            <Button x:Name="ProducerInfo" Content="Список продюсеров" Height="35" Style="{StaticResource ButtonSettings}" Margin="0,0,0,50" Click="ProducerInfo_Click"></Button>
+            <Button x:Name="TirageInfo" Content="Список тиражей" Height="35" Style="{StaticResource ButtonSettings}" Margin="0,0,0,50" Click="TirageInfo_Click"></Button>
+            <Button x:Name="OrderInfo" Content="Список заказов" Height="35" Style="{StaticResource ButtonSettings}" Click="OrderInfo_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

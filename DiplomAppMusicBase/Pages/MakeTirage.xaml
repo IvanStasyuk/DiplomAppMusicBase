@@ -1,0 +1,64 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.MakeTirage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="MakeTirage">
+
+    <Grid x:Name="TirageFon">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Размер тиража"/>
+                <TextBlock Text="Имя исполнителя"/>
+                <TextBlock Text="Фамилия тиража"/>
+                <TextBlock Text="Отчество исполнителя"/>
+                <TextBlock Text="Название альбома"/>
+                <TextBlock Text="Количество альбомов"/>
+                <TextBlock Text="Цена за 1 альбом"/>
+                <TextBlock Text="Город"/>
+                <TextBlock Text="Дата начала тиража"/>
+                <TextBlock Text="Дата конца тиража"/>
+                <TextBlock Text="Инкассация"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="NameTirage" Margin="10"/>
+                <TextBox x:Name="NameSingerTirage"/>
+                <TextBox x:Name="FamiliaSingerTirage" Margin="15"/>
+                <TextBox x:Name="PatronymicSingerTirage"/>
+                <TextBox x:Name="NameAlbomTirage" Margin="10"/>
+                <TextBox x:Name="CountAlbomsTirage" Margin="10" TextChanged="CountAlbomsTirage_TextChanged"/>
+                <TextBox x:Name="PriceOneAlbom" Margin="10" TextChanged="PriceOneAlbom_TextChanged"/>
+                <TextBox x:Name="CityTirage"/>
+                <TextBox x:Name="DataStartTirage" Margin="10" IsEnabled="False"/>
+                <TextBox x:Name="DataEndTirage"  Margin="10" IsEnabled="False"/>
+                <TextBox x:Name="ItogProfit" IsEnabled="False"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
+                <DatePicker x:Name="startDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="startDatePicker_SelectedDateChanged"/>
+                <DatePicker x:Name="endDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="endDatePicker_SelectedDateChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="SaveTirage" Content="Добавить" Style="{StaticResource ButtonEnter}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="SaveTirage_Click" ></Button>
+            <Button x:Name="BackTirage" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="BackTirage_Click" ></Button>
+            <Button x:Name="ListTirage" Content="Список тиражей" Style="{StaticResource ButtonAdd}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ListTirage_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

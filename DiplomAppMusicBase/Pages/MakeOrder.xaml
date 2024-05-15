@@ -1,0 +1,67 @@
+﻿<Page x:Class="DiplomAppMusicBase.Pages.MakeOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="MakeOrder">
+
+    <Grid x:Name="OrderFon">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Название заказа"/>
+                <TextBlock Text="Имя исполнителя"/>
+                <TextBlock Text="Фамилия исполнителя"/>
+                <TextBlock Text="Отчество исполнителя"/>
+                <TextBlock Text="Инструмент"/>
+                <TextBlock Text="Жанр"/>
+                <TextBlock Text="Эффект"/>
+                <TextBlock Text="Цена"/>
+                <TextBlock Text="Количество композиций"/>
+                <TextBlock Text="Дата начала"/>
+                <TextBlock Text="Дата конца"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox x:Name="NameOrder" Margin="10"/>
+                <TextBox x:Name="NameSingerOrder"/>
+                <TextBox x:Name="FamiliaSingerOrder" Margin="15"/>
+                <TextBox x:Name="PatronymicSingerOrder"/>
+                <ComboBox x:Name="InstrumentOrder" Margin="10" SelectionChanged="InstrumentOrder_SelectionChanged"/>
+                <ComboBox x:Name="JanrOrder" Margin="10" SelectionChanged="JanrOrder_SelectionChanged"/>
+                <ComboBox x:Name="EffectOrder" Margin="10" SelectionChanged="EffectOrder_SelectionChanged"/>
+                <TextBox x:Name="ProfitOrder" IsEnabled="False"/>
+                <ComboBox x:Name="CountCompositionsOrder" Margin="10"/>
+                <TextBox x:Name="DataStartOrder" IsEnabled="False" GotFocus="DataStartOrder_GotFocus" Margin="10"/>
+                <TextBox x:Name="DataEndOrder" IsEnabled="False" GotFocus="DataEndOrder_GotFocus"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                <DatePicker x:Name="startDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="startDatePicker_SelectedDateChanged"/>
+                <DatePicker x:Name="endDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="endDatePicker_SelectedDateChanged"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="ListPrices" Content="Посмотреть расценки" Style="{StaticResource ButtonSettings}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ListPrices_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="SaveOrder" Content="Добавить" Style="{StaticResource ButtonEnter}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="SaveOrder_Click"></Button>
+            <Button x:Name="BackOrder" Content="Вернуться" Style="{StaticResource ButtonAdd}" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="5" Click="BackOrder_Click"></Button>
+            <Button x:Name="ListOrders" Content="Список заказов" Style="{StaticResource ButtonAdd}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="ListOrders_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
