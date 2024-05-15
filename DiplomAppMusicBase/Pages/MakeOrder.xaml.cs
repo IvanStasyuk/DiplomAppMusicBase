@@ -131,7 +131,18 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().Orders.Add(UserOrder);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Заказ добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                NameOrder.Text = "";
+                NameSingerOrder.Text = "";
+                FamiliaSingerOrder.Text = "";
+                PatronymicSingerOrder.Text = "";
+                InstrumentOrder.Text = "";
+                JanrOrder.Text = "";
+                EffectOrder.Text = "";
+                ProfitOrder.Text = "";
+                CountCompositionsOrder.Text = "";
+                DataStartOrder.Text = "";
+                DataEndOrder.Text = "";
             }
             catch
             {

@@ -26,6 +26,7 @@ namespace DiplomAppMusicBase.Pages
             var uriMainFon = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMainFon);
             RegFon.Background = new ImageBrush(bitmapMain);
+            DataContext = MusicStudioBaseEntities.GetContext().Users.ToList();
         }
 
         private async void CanToGo_Click(object sender, RoutedEventArgs e)
@@ -83,14 +84,13 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().Users.Add(newReg);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Пользователь добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 TBNamePage.Text = "";
                 TBFamiliaPage.Text = "";
                 TBPatronymicPage.Text = "";
                 TBLoginPage.Text = "";
                 TBPasswordPage.Text = "";
                 TBRolePage.Text = "";
-                Manager.MFrame.Navigate(new Pages.Autorisation());
             }
             catch
             {

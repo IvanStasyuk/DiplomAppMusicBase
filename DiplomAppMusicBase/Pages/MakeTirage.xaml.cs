@@ -111,7 +111,18 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().Tirage.Add(newTirage);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Тираж создан!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                NameTirage.Text = "";
+                NameSingerTirage.Text = "";
+                FamiliaSingerTirage.Text = "";
+                PatronymicSingerTirage.Text = "";
+                NameAlbomTirage.Text = "";
+                CountAlbomsTirage.Text = "";
+                PriceOneAlbom.Text = "";
+                CityTirage.Text = "";
+                DataStartTirage.Text = "";
+                DataStartTirage.Text = "";
+                ItogProfit.Text = "";
             }
             catch
             {

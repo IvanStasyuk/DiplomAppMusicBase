@@ -160,7 +160,7 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().Contracts.Add(UserContract);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Договор добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 NameContractTB.Text = "";
                 NameSingerTB.Text = "";
                 FamiliaSingerTB.Text = "";

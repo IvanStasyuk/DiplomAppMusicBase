@@ -84,7 +84,15 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().Alboms.Add(NewAlbom);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Альбом добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                NameAlbomAdd.Text = "";
+                NameSingerAlbom.Text = "";
+                FamiliaSingerAlbom.Text = "";
+                PatronymicSingerAlbom.Text = "";
+                CountCompositionsAlbom.Text = "";
+                Janr.Text = "";
+                YearRelease.Text = "";
+                IDSingerAdd.Text = "";
             }
             catch
             {

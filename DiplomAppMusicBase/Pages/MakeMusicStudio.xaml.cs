@@ -68,7 +68,12 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().MusicStudios.Add(NewMusicStudio);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Студия звукозаписи создана!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                AddMSFull.Text = "";
+                AddMSLit.Text = "";
+                NameAdministratorMS.Text = "";
+                NameAccountantMS.Text = "";
+                CityMS.Text = "";
             }
             catch
             {

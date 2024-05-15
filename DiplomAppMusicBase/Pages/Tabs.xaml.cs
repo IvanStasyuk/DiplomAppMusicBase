@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace DiplomAppMusicBase.Pages
 {
@@ -42,14 +43,47 @@ namespace DiplomAppMusicBase.Pages
                 AddOrder.IsEnabled = false;
                 GoToTirage.IsEnabled = false;
                 GoToAlbom.IsEnabled = false;
+                AddDogovor.IsEnabled = false;
                 ListSingers.IsEnabled = false;
             }
-            else if (Manager.IsGuest == false)
+            else
             {
                 PeopleBox.IsEnabled = true;
                 AddOrder.IsEnabled = true;
                 GoToTirage.IsEnabled = true;
                 GoToAlbom.IsEnabled = true;
+                AddDogovor.IsEnabled = true;
+                ListSingers.IsEnabled = true;
+            }
+
+            if (Manager.IsRole == 3)
+            {
+                PeopleBox.IsEnabled = true;
+                ListenInstruments.IsEnabled = true;
+                AddDogovor.IsEnabled = true;
+                AddOrder.IsEnabled = true;
+                GoToTirage.IsEnabled = true;
+                GoToAlbom.IsEnabled = true;
+                ListSingers.IsEnabled = true;
+            }
+            if (Manager.IsRole == 2)
+            {
+                PeopleBox.IsEnabled = true;
+                ListenInstruments.IsEnabled = true;
+                AddDogovor.IsEnabled = false;
+                AddOrder.IsEnabled = false;
+                GoToTirage.IsEnabled = true;
+                GoToAlbom.IsEnabled = false;
+                ListSingers.IsEnabled = true;
+            }
+            if (Manager.IsRole == 1)
+            {
+                PeopleBox.IsEnabled = true;
+                ListenInstruments.IsEnabled = true;
+                AddDogovor.IsEnabled = true;
+                AddOrder.IsEnabled = false;
+                GoToTirage.IsEnabled = false;
+                GoToAlbom.IsEnabled = false;
                 ListSingers.IsEnabled = true;
             }
         }

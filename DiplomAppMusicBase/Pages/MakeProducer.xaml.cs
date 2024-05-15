@@ -74,7 +74,13 @@ namespace DiplomAppMusicBase.Pages
                 await Task.Delay(500);
                 MusicStudioBaseEntities.GetContext().Producers.Add(newProducer);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Продюсер добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                NameProducer.Text = "";
+                FamiliaProducer.Text = "";
+                PatronymicProducer.Text = "";
+                NicknameProducer.Text = "";
+                YearBirthdayProducer.Text = "";
+                NameMusicStudio.Text = "";
             }
             catch
             {
