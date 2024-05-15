@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DiplomAppMusicBase.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="Autorisation">
+      Title="Авторизация">
 
     <Grid>
         <Grid.ColumnDefinitions>

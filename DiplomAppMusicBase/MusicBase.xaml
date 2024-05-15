@@ -26,6 +26,6 @@
             <Image Source="pack://application:,,,/Resources/studio.png"></Image>
         </StackPanel>
         <Image x:Name="LogoStart" Source="pack://application:,,,/Resources/TextLogo.png" Grid.Column="1" Grid.ColumnSpan="3" Visibility="Visible"></Image>
-        <TextBlock x:Name="TextStart" Text="Выберите категорию:" Grid.Column="1" Grid.ColumnSpan="3" Visibility="Hidden"></TextBlock>
+        <TextBlock x:Name="TextStart" Text="{Binding ElementName=MFrame, Path=Content.Title}" Grid.Column="1" Grid.ColumnSpan="3" Visibility="Hidden"></TextBlock>
     </Grid>
 </Window>
