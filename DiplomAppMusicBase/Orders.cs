@@ -29,6 +29,13 @@ namespace DiplomAppMusicBase
         public string Janr { get; set; }
         public string Effect { get; set; }
         public Nullable<decimal> Profit { get; set; }
+        public string FormattedProfit
+        {
+            get
+            {
+                return string.Format("{0} ₽", Profit);
+            }
+        }
         public Nullable<int> CountCompositions { get; set; }
         public Nullable<System.DateTime> DateStart { get; set; }
         public Nullable<System.DateTime> DateEnd { get; set; }

@@ -28,11 +28,25 @@ namespace DiplomAppMusicBase
         public string NameAlbom { get; set; }
         public Nullable<int> CountAlboms { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public string FormattedPrice
+        {
+            get
+            {
+                return string.Format("{0} ₽", Price);
+            }
+        }
         public string City { get; set; }
         public Nullable<System.DateTime> TimeStart { get; set; }
         public Nullable<System.DateTime> TimeEnd { get; set; }
         public Nullable<decimal> Profit { get; set; }
-    
+        public string FormattedProfit
+        {
+            get
+            {
+                return string.Format("{0} ₽", Profit);
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Singers> Singers { get; set; }
     }

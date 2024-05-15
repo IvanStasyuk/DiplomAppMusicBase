@@ -33,7 +33,14 @@ namespace DiplomAppMusicBase
         public Nullable<System.DateTime> DataStart { get; set; }
         public Nullable<System.DateTime> DataEnd { get; set; }
         public Nullable<decimal> Profit { get; set; }
-    
+        public string FormattedProfit
+        {
+            get
+            {
+                return string.Format("{0} ₽", Profit);
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Singers> Singers { get; set; }
     }

@@ -33,11 +33,11 @@
                     <DataGridTextColumn Header="Отчество исполнителя" Binding="{Binding PatronymicSinger}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Название альбома" Binding="{Binding NameAlbom}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Количество альбомов" Binding="{Binding CountAlboms}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Цена 1 альбома" Binding="{Binding Price}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена 1 альбома" Binding="{Binding FormattedPrice}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Город" Binding="{Binding City}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дата начала тиража" Binding="{Binding TimeStart}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дата конца тиража" Binding="{Binding TimeEnd}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Инкассация" Binding="{Binding Profit}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Инкассация" Binding="{Binding FormattedProfit}"></DataGridTextColumn>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
