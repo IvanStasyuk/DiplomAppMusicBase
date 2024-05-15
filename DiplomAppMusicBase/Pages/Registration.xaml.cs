@@ -71,7 +71,7 @@ namespace DiplomAppMusicBase.Pages
             }
             try
             {
-                Users UserReg = new Users()
+                Users newReg = new Users()
                 {
                     NameUser = TBNamePage.Text,
                     FamiliaUser = TBFamiliaPage.Text,
@@ -81,7 +81,7 @@ namespace DiplomAppMusicBase.Pages
                     idRole = int.Parse(TBRolePage.Text)
                 };
                 await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Users.Add(UserReg);
+                MusicStudioBaseEntities.GetContext().Users.Add(newReg);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
                 MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 TBNamePage.Text = "";

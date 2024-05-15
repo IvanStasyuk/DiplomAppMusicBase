@@ -42,6 +42,7 @@ namespace DiplomAppMusicBase.Pages
                 AddOrder.IsEnabled = false;
                 GoToTirage.IsEnabled = false;
                 GoToAlbom.IsEnabled = false;
+                ListSingers.IsEnabled = false;
             }
             else if (Manager.IsGuest == false)
             {
@@ -49,6 +50,7 @@ namespace DiplomAppMusicBase.Pages
                 AddOrder.IsEnabled = true;
                 GoToTirage.IsEnabled = true;
                 GoToAlbom.IsEnabled = true;
+                ListSingers.IsEnabled = true;
             }
         }
 
@@ -128,7 +130,6 @@ namespace DiplomAppMusicBase.Pages
             await Task.Delay(500);
             if (Manager.MFrame.CanGoBack)
             {
-
                 Manager.MFrame.GoBack();
             }
             else

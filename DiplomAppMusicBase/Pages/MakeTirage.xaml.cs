@@ -94,7 +94,7 @@ namespace DiplomAppMusicBase.Pages
             }
             try
             {
-                Tirage UserOrder = new Tirage()
+                Tirage newTirage = new Tirage()
                 {
                     NameTirage = NameTirage.Text,
                     NameSinger = NameSingerTirage.Text,
@@ -109,7 +109,7 @@ namespace DiplomAppMusicBase.Pages
                     Profit = (decimal?)SqlMoney.Parse(ItogProfit.Text)
                 };
                 await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Tirage.Add(UserOrder);
+                MusicStudioBaseEntities.GetContext().Tirage.Add(newTirage);
                 MusicStudioBaseEntities.GetContext().SaveChanges();
                 MessageBox.Show("Данные добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }

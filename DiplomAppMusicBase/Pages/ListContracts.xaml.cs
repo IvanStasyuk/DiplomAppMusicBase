@@ -45,13 +45,13 @@ namespace DiplomAppMusicBase.Pages
         private async void ListDelete_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(500);
-            var OrderRemoving = ListContractsGrid.SelectedItems.Cast<Contracts>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить {OrderRemoving.Count()} элементов",
+            var ContractRemoving = ListContractsGrid.SelectedItems.Cast<Contracts>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить {ContractRemoving.Count()} элементов",
                 "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    MusicStudioBaseEntities.GetContext().Contracts.RemoveRange(OrderRemoving);
+                    MusicStudioBaseEntities.GetContext().Contracts.RemoveRange(ContractRemoving);
                     MusicStudioBaseEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
                     ListContractsGrid.ItemsSource = MusicStudioBaseEntities.GetContext().Contracts.ToList();

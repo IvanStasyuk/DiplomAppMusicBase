@@ -115,20 +115,22 @@ namespace DiplomAppMusicBase.Pages
             Manager.MFrame.Navigate(new Pages.ListContracts());
         }
 
-        private void ProducerInfo_Click(object sender, RoutedEventArgs e)
+        private async void ProducerInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            await Task.Delay(500);
+            Manager.MFrame.Navigate(new Pages.ListProducers());
         }
 
-        private void TirageInfo_Click(object sender, RoutedEventArgs e)
+        private async void TirageInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            await Task.Delay(500);
+            Manager.MFrame.Navigate(new Pages.ListTirage());
         }
 
         private async void OrderInfo_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(500);
-            Manager.MFrame.Navigate(new Pages.ListContracts());
+            Manager.MFrame.Navigate(new Pages.ListOrders());
         }
     }
 }
