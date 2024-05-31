@@ -23,10 +23,12 @@ namespace DiplomAppMusicBase.Pages
         public Registration()
         {
             InitializeComponent();
+            List<int> listroles = new List<int>() { 1, 2, 3 };
             var uriMainFon = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMainFon);
             RegFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Users.ToList();
+            TBRolePage.ItemsSource = listroles;
         }
 
         private async void CanToGo_Click(object sender, RoutedEventArgs e)
