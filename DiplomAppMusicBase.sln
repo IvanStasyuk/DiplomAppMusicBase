@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiplomAppMusicBase", "DiplomAppMusicBase\DiplomAppMusicBase.csproj", "{2691D83C-E20F-4E2E-9184-7F3C04AC7550}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicBaseTests", "MusicBaseTests\MusicBaseTests.csproj", "{D0083DC9-10ED-4F1F-B5C0-53EDD82BF6C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2691D83C-E20F-4E2E-9184-7F3C04AC7550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2691D83C-E20F-4E2E-9184-7F3C04AC7550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2691D83C-E20F-4E2E-9184-7F3C04AC7550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0083DC9-10ED-4F1F-B5C0-53EDD82BF6C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0083DC9-10ED-4F1F-B5C0-53EDD82BF6C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0083DC9-10ED-4F1F-B5C0-53EDD82BF6C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0083DC9-10ED-4F1F-B5C0-53EDD82BF6C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
