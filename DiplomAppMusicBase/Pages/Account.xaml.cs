@@ -73,7 +73,7 @@ namespace DiplomAppMusicBase.Pages
         private async void AddNewMusicStudio_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(500);
-            Manager.MFrame.Navigate(new Pages.MakeMusicStudio());
+            Manager.MFrame.Navigate(new Pages.MakeMusicStudio(null));
         }
     }
 }

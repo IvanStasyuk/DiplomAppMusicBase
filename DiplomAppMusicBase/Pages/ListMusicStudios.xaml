@@ -31,6 +31,13 @@
                     <DataGridTextColumn Header="Имя администратора" Binding="{Binding NameAdministrator}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Имя бухгалтера" Binding="{Binding NameAccountant}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Город" Binding="{Binding City}"></DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="RedBut" Content="Редактировать" Click="RedBut_Click" Style="{StaticResource ButtonSettings}"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">

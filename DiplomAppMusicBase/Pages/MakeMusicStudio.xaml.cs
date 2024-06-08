@@ -20,13 +20,17 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeMusicStudio : Page
     {
-        public MakeMusicStudio()
+        private MusicStudios _currentMusicStudio = new MusicStudios();
+        public MakeMusicStudio(MusicStudios selectedMusicStudio)
         {
             InitializeComponent();
             var uriMain = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMain);
             AddMusicStudioFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().MusicStudios.ToList();
+            if (selectedMusicStudio != null)
+                _currentMusicStudio = selectedMusicStudio;
+            DataContext = _currentMusicStudio;
         }
 
         private async void SaveMusicStudio_Click(object sender, RoutedEventArgs e)
@@ -49,38 +53,47 @@ namespace DiplomAppMusicBase.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (MusicStudioBaseEntities.GetContext().MusicStudios.Count(y => y.NameStudio == AddMSFull.Text) > 0)
+            var ReditingMusicStudio = MusicStudioBaseEntities.GetContext().MusicStudios.FirstOrDefault(y => y.NameStudio == AddMSFull.Text);
+            if (ReditingMusicStudio != null)
             {
-                await Task.Delay(500);
-                MessageBox.Show("Студия уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            try
-            {
-                MusicStudios NewMusicStudio = new MusicStudios()
-                {
-                    NameStudio = AddMSFull.Text,
-                    MinName = AddMSLit.Text,
-                    NameAdministrator = NameAdministratorMS.Text,
-                    NameAccountant = NameAccountantMS.Text,
-                    City = CityMS.Text
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().MusicStudios.Add(NewMusicStudio);
+                ReditingMusicStudio.NameStudio = AddMSFull.Text;
+                ReditingMusicStudio.MinName = AddMSLit.Text;
+                ReditingMusicStudio.NameAdministrator = NameAdministratorMS.Text;
+                ReditingMusicStudio.NameAccountant = NameAccountantMS.Text;
+                ReditingMusicStudio.City = CityMS.Text;
+
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Студия звукозаписи создана!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                AddMSFull.Text = "";
-                AddMSLit.Text = "";
-                NameAdministratorMS.Text = "";
-                NameAccountantMS.Text = "";
-                CityMS.Text = "";
-                Manager.MFrame.Navigate(new Pages.ListMusicStudios());
+                MessageBox.Show("Студия звукозаписи обновлена!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch
-            {
-                await Task.Delay(500);
-                MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+            else
+            { 
+                try
+                {
+                    MusicStudios NewMusicStudio = new MusicStudios()
+                    {
+                        NameStudio = AddMSFull.Text,
+                        MinName = AddMSLit.Text,
+                        NameAdministrator = NameAdministratorMS.Text,
+                        NameAccountant = NameAccountantMS.Text,
+                        City = CityMS.Text
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().MusicStudios.Add(NewMusicStudio);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Студия звукозаписи создана!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    AddMSFull.Text = "";
+                    AddMSLit.Text = "";
+                    NameAdministratorMS.Text = "";
+                    NameAccountantMS.Text = "";
+                    CityMS.Text = "";
+                    Manager.MFrame.Navigate(new Pages.ListMusicStudios());
+                }
+                catch
+                {
+                    await Task.Delay(500);
+                    MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         }
 

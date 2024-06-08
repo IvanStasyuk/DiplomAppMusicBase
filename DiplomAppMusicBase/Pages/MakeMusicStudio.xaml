@@ -32,11 +32,11 @@
                 <TextBlock Text="Город" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox x:Name="AddMSFull" Margin="10"/>
-                <TextBox x:Name="AddMSLit"/>
-                <TextBox x:Name="NameAdministratorMS" Margin="15"/>
-                <TextBox x:Name="NameAccountantMS"/>
-                <TextBox x:Name="CityMS" Margin="10"/>
+                <TextBox x:Name="AddMSFull" Text="{Binding NameStudio}" Margin="10"/>
+                <TextBox x:Name="AddMSLit" Text="{Binding MinName}"/>
+                <TextBox x:Name="NameAdministratorMS" Text="{Binding NameAdministrator}" Margin="15"/>
+                <TextBox x:Name="NameAccountantMS" Text="{Binding NameAccountant}"/>
+                <TextBox x:Name="CityMS" Text="{Binding City}" Margin="10"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
