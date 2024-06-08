@@ -123,6 +123,7 @@ namespace DiplomAppMusicBase.Pages
                 DataStartTirage.Text = "";
                 DataStartTirage.Text = "";
                 ItogProfit.Text = "";
+                Manager.MFrame.Navigate(new Pages.ListTirage());
             }
             catch
             {

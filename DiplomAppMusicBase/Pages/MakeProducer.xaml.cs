@@ -85,6 +85,7 @@ namespace DiplomAppMusicBase.Pages
                 NicknameProducer.Text = "";
                 YearBirthdayProducer.Text = "";
                 NameMusicStudio.Text = "";
+                Manager.MFrame.Navigate(new Pages.ListProducers());
             }
             catch
             {

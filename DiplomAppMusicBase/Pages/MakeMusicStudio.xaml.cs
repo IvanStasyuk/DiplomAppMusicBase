@@ -74,6 +74,7 @@ namespace DiplomAppMusicBase.Pages
                 NameAdministratorMS.Text = "";
                 NameAccountantMS.Text = "";
                 CityMS.Text = "";
+                Manager.MFrame.Navigate(new Pages.ListMusicStudios());
             }
             catch
             {
