@@ -22,13 +22,17 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeContract : Page
     {
-        public MakeContract()
+        private Contracts _currentContract = new Contracts();
+        public MakeContract(Contracts selectedContract)
         {
             InitializeComponent();
             var uriMain = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMain);
             ContractFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Contracts.ToList();
+            if (selectedContract != null)
+                _currentContract = selectedContract;
+            DataContext = _currentContract;
         }
 
         private async void SaveContract_Click(object sender, RoutedEventArgs e)
@@ -134,69 +138,86 @@ namespace DiplomAppMusicBase.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (MusicStudioBaseEntities.GetContext().Contracts.Count(y => y.NameContract == NameContractTB.Text) > 0)
+            var ReditingContract = MusicStudioBaseEntities.GetContext().Contracts.FirstOrDefault(y => y.NameContract == NameContractTB.Text);
+            if (ReditingContract != null)
             {
-                await Task.Delay(500);
-                MessageBox.Show("Заказ уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            try
-            {
-                Contracts UserContract = new Contracts()
-                {
-                    NameContract = NameContractTB.Text,
-                    NameSinger = NameSingerTB.Text,
-                    FamiliaSinger = FamiliaSingerTB.Text,
-                    PatronymicSinger = PatronymicSingerTB.Text,
-                    MusicStudio = MusicStudioTB.Text,
-                    NameProducer = NameProducerTB.Text,
-                    YearBirthday = DateTime.Parse(DayBirthdayTB.Text),
-                    CountCompositons = int.Parse(CountCompositionsTB.Text),
-                    Experience = ExperienceTB.Text,
-                    DataStart = DateTime.Parse(DateStartTB.Text),
-                    DataEnd = DateTime.Parse(DateEndTB.Text),
-                    Profit = int.Parse(ProfitTB.Text)
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Contracts.Add(UserContract);
+                ReditingContract.NameContract = NameContractTB.Text;
+                ReditingContract.NameSinger = NameSingerTB.Text;
+                ReditingContract.FamiliaSinger = FamiliaSingerTB.Text;
+                ReditingContract.PatronymicSinger = PatronymicSingerTB.Text;
+                ReditingContract.MusicStudio = MusicStudioTB.Text;
+                ReditingContract.NameProducer = NameProducerTB.Text;
+                ReditingContract.YearBirthday = DateTime.Parse(DayBirthdayTB.Text);
+                ReditingContract.Experience = ExperienceTB.Text;
+                ReditingContract.DataStart = DateTime.Parse(DateStartTB.Text);
+                ReditingContract.DataEnd = DateTime.Parse(DateEndTB.Text);
+                ReditingContract.Profit = int.Parse(ProfitTB.Text);
+
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Договор добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NameContractTB.Text = "";
-                NameSingerTB.Text = "";
-                FamiliaSingerTB.Text = "";
-                PatronymicSingerTB.Text = "";
-                MusicStudioTB.Text = "";
-                NameProducerTB.Text = "";
-                DayBirthdayTB.Text = "";
-                CountCompositionsTB.Text = "";
-                ExperienceTB.Text = "";
-                DateStartTB.Text = "";
-                DateEndTB.Text = "";
-                ProfitTB.Text = "";
-                NameContractTB.IsEnabled = true;
-                NameSingerTB.IsEnabled = true;
-                FamiliaSingerTB.IsEnabled = true;
-                PatronymicSingerTB.IsEnabled = true;
-                MusicStudioTB.IsEnabled = true;
-                NameProducerTB.IsEnabled = true;
-                CountCompositionsTB.IsEnabled = true;
-                ExperienceTB.IsEnabled = true;
-                ProfitTB.IsEnabled = true;
-                AddContractBT.Visibility = Visibility.Hidden;
-                RedContractBT.Visibility = Visibility.Hidden;
-                PrintContractBT.Visibility = Visibility.Hidden;
-                SaveContract.Visibility = Visibility.Visible;
-                BackContract.Visibility = Visibility.Visible;
-                ListContract.Visibility = Visibility.Visible;
-                PickerDateStart.Visibility = Visibility.Visible;
-                PickerDayBirthday.Visibility = Visibility.Visible;
-                PickerDateEnd.Visibility = Visibility.Visible;
+                MessageBox.Show("Договор обновлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Manager.MFrame.Navigate(new Pages.ListContracts());
             }
-            catch
-            {
-                await Task.Delay(500);
-                MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+            else
+            { 
+                try
+                {
+                    Contracts UserContract = new Contracts()
+                    {
+                        NameContract = NameContractTB.Text,
+                        NameSinger = NameSingerTB.Text,
+                        FamiliaSinger = FamiliaSingerTB.Text,
+                        PatronymicSinger = PatronymicSingerTB.Text,
+                        MusicStudio = MusicStudioTB.Text,
+                        NameProducer = NameProducerTB.Text,
+                        YearBirthday = DateTime.Parse(DayBirthdayTB.Text),
+                        CountCompositons = int.Parse(CountCompositionsTB.Text),
+                        Experience = ExperienceTB.Text,
+                        DataStart = DateTime.Parse(DateStartTB.Text),
+                        DataEnd = DateTime.Parse(DateEndTB.Text),
+                        Profit = int.Parse(ProfitTB.Text)
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Contracts.Add(UserContract);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Договор добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NameContractTB.Text = "";
+                    NameSingerTB.Text = "";
+                    FamiliaSingerTB.Text = "";
+                    PatronymicSingerTB.Text = "";
+                    MusicStudioTB.Text = "";
+                    NameProducerTB.Text = "";
+                    DayBirthdayTB.Text = "";
+                    CountCompositionsTB.Text = "";
+                    ExperienceTB.Text = "";
+                    DateStartTB.Text = "";
+                    DateEndTB.Text = "";
+                    ProfitTB.Text = "";
+                    NameContractTB.IsEnabled = true;
+                    NameSingerTB.IsEnabled = true;
+                    FamiliaSingerTB.IsEnabled = true;
+                    PatronymicSingerTB.IsEnabled = true;
+                    MusicStudioTB.IsEnabled = true;
+                    NameProducerTB.IsEnabled = true;
+                    CountCompositionsTB.IsEnabled = true;
+                    ExperienceTB.IsEnabled = true;
+                    ProfitTB.IsEnabled = true;
+                    AddContractBT.Visibility = Visibility.Hidden;
+                    RedContractBT.Visibility = Visibility.Hidden;
+                    PrintContractBT.Visibility = Visibility.Hidden;
+                    SaveContract.Visibility = Visibility.Visible;
+                    BackContract.Visibility = Visibility.Visible;
+                    ListContract.Visibility = Visibility.Visible;
+                    PickerDateStart.Visibility = Visibility.Visible;
+                    PickerDayBirthday.Visibility = Visibility.Visible;
+                    PickerDateEnd.Visibility = Visibility.Visible;
+                    Manager.MFrame.Navigate(new Pages.ListContracts());
+                }
+                catch
+                {
+                    await Task.Delay(500);
+                    MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         }
 

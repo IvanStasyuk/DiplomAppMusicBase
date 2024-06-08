@@ -25,64 +25,64 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="5">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Название договора" Foreground="White"></TextBlock>
-                <TextBox x:Name="NameContractTB"></TextBox>
+                <TextBox x:Name="NameContractTB" Text="{Binding NameContract}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Имя исполнителя" Foreground="White"></TextBlock>
-                <TextBox x:Name="NameSingerTB"></TextBox>
+                <TextBox x:Name="NameSingerTB" Text="{Binding NameSinger}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Фамилия исполнителя" Foreground="White"></TextBlock>
-                <TextBox x:Name="FamiliaSingerTB"></TextBox>
+                <TextBox x:Name="FamiliaSingerTB" Text="{Binding FamiliaSinger}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Отчество исполнителя" Foreground="White"></TextBlock>
-                <TextBox x:Name="PatronymicSingerTB"></TextBox>
+                <TextBox x:Name="PatronymicSingerTB" Text="{Binding PatronymicSinger}"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="5">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Студия звукозаписи" Foreground="White"></TextBlock>
-                <TextBox x:Name="MusicStudioTB"></TextBox>
+                <TextBox x:Name="MusicStudioTB" Text="{Binding MusicStudio}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Имя продюсера" Foreground="White"></TextBlock>
-                <TextBox x:Name="NameProducerTB"></TextBox>
+                <TextBox x:Name="NameProducerTB" Text="{Binding NameProducer}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="День рождения исполнителя" Foreground="White"></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox x:Name="DayBirthdayTB" IsEnabled="False" GotFocus="DayBirthdayTB_GotFocus"></TextBox>
+                    <TextBox x:Name="DayBirthdayTB" Text="{Binding YearBirthday}" IsEnabled="False" GotFocus="DayBirthdayTB_GotFocus"></TextBox>
                     <DatePicker x:Name="PickerDayBirthday" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerDayBirthday_SelectedDateChanged"></DatePicker>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Количество композиций" Foreground="White"></TextBlock>
-                <TextBox x:Name="CountCompositionsTB"></TextBox>
+                <TextBox x:Name="CountCompositionsTB" Text="{Binding CountCompositons}"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="5">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Опыт работы" Foreground="White"></TextBlock>
-                <TextBox x:Name="ExperienceTB"></TextBox>
+                <TextBox x:Name="ExperienceTB" Text="{Binding Experience}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Дата начала сотрудничества" Foreground="White"></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox x:Name="DateStartTB" GotFocus="DateStartTB_GotFocus" IsEnabled="False"></TextBox>
+                    <TextBox x:Name="DateStartTB" Text="{Binding DataStart}" GotFocus="DateStartTB_GotFocus" IsEnabled="False"></TextBox>
                     <DatePicker x:Name="PickerDateStart" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerDateStart_SelectedDateChanged"></DatePicker>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Дата конца сотрудничества" Foreground="White"></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox x:Name="DateEndTB" GotFocus="DateEndTB_GotFocus" IsEnabled="False"></TextBox>
+                    <TextBox x:Name="DateEndTB" Text="{Binding DataEnd}" GotFocus="DateEndTB_GotFocus" IsEnabled="False"></TextBox>
                     <DatePicker x:Name="PickerDateEnd" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerDateEnd_SelectedDateChanged"></DatePicker>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10">
                 <TextBlock Text="Цена" Foreground="White"></TextBlock>
-                <TextBox x:Name="ProfitTB"></TextBox>
+                <TextBox x:Name="ProfitTB" Text="{Binding Profit}"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">

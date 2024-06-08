@@ -38,6 +38,13 @@
                     <DataGridTextColumn Header="Дата начала сотрудничества" Binding="{Binding DataStart}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дата конца сотрудничества" Binding="{Binding DataEnd}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Цена" Binding="{Binding FormattedProfit}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="RedBut" Content="Редактировать" Click="RedBut_Click" Style="{StaticResource ButtonSettings}"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">

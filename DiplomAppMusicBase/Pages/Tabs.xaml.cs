@@ -121,7 +121,7 @@ namespace DiplomAppMusicBase.Pages
             MessageBoxResult result = MessageBox.Show("Вы уверены что хотите подписать договор?", "Подтвердите", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                Manager.MFrame.Navigate(new Pages.MakeContract());
+                Manager.MFrame.Navigate(new Pages.MakeContract(null));
             }
             else
             {
