@@ -25,17 +25,17 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock Text="Размер тиража"/>
-                <TextBlock Text="Имя исполнителя"/>
-                <TextBlock Text="Фамилия тиража"/>
-                <TextBlock Text="Отчество исполнителя"/>
-                <TextBlock Text="Название альбома"/>
-                <TextBlock Text="Количество альбомов"/>
-                <TextBlock Text="Цена за 1 альбом"/>
-                <TextBlock Text="Город"/>
-                <TextBlock Text="Дата начала тиража"/>
-                <TextBlock Text="Дата конца тиража"/>
-                <TextBlock Text="Инкассация"/>
+                <TextBlock Text="Размер тиража" Foreground="White"/>
+                <TextBlock Text="Имя исполнителя" Foreground="White"/>
+                <TextBlock Text="Фамилия тиража" Foreground="White"/>
+                <TextBlock Text="Отчество исполнителя" Foreground="White"/>
+                <TextBlock Text="Название альбома" Foreground="White"/>
+                <TextBlock Text="Количество альбомов" Foreground="White"/>
+                <TextBlock Text="Цена за 1 альбом" Foreground="White"/>
+                <TextBlock Text="Город" Foreground="White"/>
+                <TextBlock Text="Дата начала тиража" Foreground="White"/>
+                <TextBlock Text="Дата конца тиража" Foreground="White"/>
+                <TextBlock Text="Инкассация" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox x:Name="NameTirage" Margin="10"/>

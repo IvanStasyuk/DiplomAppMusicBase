@@ -21,13 +21,17 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeAlbom : Page
     {
-        public MakeAlbom()
+        private Alboms _currentAlbom = new Alboms();
+        public MakeAlbom(Alboms selectedAlbom)
         {
             InitializeComponent();
             var uriMain = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMain);
             AlbomFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Alboms.ToList();
+            if (selectedAlbom != null)
+                _currentAlbom = selectedAlbom;
+            DataContext = _currentAlbom;
         }
 
         private async void DateReleasePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -62,43 +66,57 @@ namespace DiplomAppMusicBase.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (MusicStudioBaseEntities.GetContext().Alboms.Count(y => y.NameAlbom == NameAlbomAdd.Text) > 0)
+            var ReditingAlbom = MusicStudioBaseEntities.GetContext().Alboms.FirstOrDefault(y => y.NameAlbom == NameAlbomAdd.Text);
+            if (ReditingAlbom != null)
             {
-                await Task.Delay(500);
-                MessageBox.Show("Альбом уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            try
-            {
-                Alboms NewAlbom = new Alboms()
-                {
-                    NameAlbom = NameAlbomAdd.Text,
-                    NameSinger = NameSingerAlbom.Text,
-                    FamiliaSinger = FamiliaSingerAlbom.Text,
-                    PatronymicSinger = PatronymicSingerAlbom.Text,
-                    CountCompositions = int.Parse(CountCompositionsAlbom.Text),
-                    Janr = Janr.Text,
-                    YearRelease = DateTime.Parse(YearRelease.Text),
-                    idSinger = int.Parse(IDSingerAdd.Text),
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Alboms.Add(NewAlbom);
+                ReditingAlbom.NameAlbom = NameAlbomAdd.Text;
+                ReditingAlbom.NameSinger = NameSingerAlbom.Text;
+                ReditingAlbom.FamiliaSinger = FamiliaSingerAlbom.Text;
+                ReditingAlbom.PatronymicSinger = PatronymicSingerAlbom.Text;
+                ReditingAlbom.CountCompositions = int.Parse(CountCompositionsAlbom.Text);
+                ReditingAlbom.Janr = Janr.Text;
+                ReditingAlbom.YearRelease = DateTime.Parse(YearRelease.Text);
+                ReditingAlbom.idSinger = int.Parse(IDSingerAdd.Text);
+
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Альбом добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NameAlbomAdd.Text = "";
-                NameSingerAlbom.Text = "";
-                FamiliaSingerAlbom.Text = "";
-                PatronymicSingerAlbom.Text = "";
-                CountCompositionsAlbom.Text = "";
-                Janr.Text = "";
-                YearRelease.Text = "";
-                IDSingerAdd.Text = "";
+                MessageBox.Show("Альбом обновлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Manager.MFrame.Navigate(new Pages.ListAlboms());
             }
-            catch
-            {
-                await Task.Delay(500);
-                MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+            else
+            { 
+                try
+                {
+                    Alboms NewAlbom = new Alboms()
+                    {
+                        NameAlbom = NameAlbomAdd.Text,
+                        NameSinger = NameSingerAlbom.Text,
+                        FamiliaSinger = FamiliaSingerAlbom.Text,
+                        PatronymicSinger = PatronymicSingerAlbom.Text,
+                        CountCompositions = int.Parse(CountCompositionsAlbom.Text),
+                        Janr = Janr.Text,
+                        YearRelease = DateTime.Parse(YearRelease.Text),
+                        idSinger = int.Parse(IDSingerAdd.Text),
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Alboms.Add(NewAlbom);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Альбом добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NameAlbomAdd.Text = "";
+                    NameSingerAlbom.Text = "";
+                    FamiliaSingerAlbom.Text = "";
+                    PatronymicSingerAlbom.Text = "";
+                    CountCompositionsAlbom.Text = "";
+                    Janr.Text = "";
+                    YearRelease.Text = "";
+                    IDSingerAdd.Text = "";
+                    Manager.MFrame.Navigate(new Pages.ListAlboms());
+                }
+                catch
+                {
+                    await Task.Delay(500);
+                    MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         }
 

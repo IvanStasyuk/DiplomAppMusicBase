@@ -37,6 +37,13 @@
                     <DataGridTextColumn Header="Количество композиций" Binding="{Binding CountCompositions}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дата начала записи" Binding="{Binding DateStart}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дата конца записи" Binding="{Binding DateEnd}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="RedButton" Content="Редактировать" Click="RedButton_Click" Style="{StaticResource ButtonSettings}"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">

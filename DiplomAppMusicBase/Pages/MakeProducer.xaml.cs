@@ -24,6 +24,10 @@ namespace DiplomAppMusicBase.Pages
         public MakeProducer()
         {
             InitializeComponent();
+            var uriMain = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
+            var bitmapMain = new BitmapImage(uriMain);
+            AddProducerFon.Background = new ImageBrush(bitmapMain);
+            DataContext = MusicStudioBaseEntities.GetContext().Producers.ToList();
         }
 
         private async void PickerBirthday_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

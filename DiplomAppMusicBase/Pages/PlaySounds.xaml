@@ -94,7 +94,7 @@
             </Button.ContentTemplate>
         </Button>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Включить своё"></TextBlock>
+            <TextBlock Text="Включить своё" Foreground="White"></TextBlock>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.RowSpan="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="OpenFile" Style="{StaticResource ButtonAdd}" Margin="20" Click="OpenFile_Click">

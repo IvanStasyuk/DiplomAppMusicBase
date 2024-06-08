@@ -25,24 +25,24 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock Text="Название альбома"/>
-                <TextBlock Text="Имя исполнителя"/>
-                <TextBlock Text="Фамилия исполнителя"/>
-                <TextBlock Text="Отчество исполнителя"/>
-                <TextBlock Text="Количество композиций"/>
-                <TextBlock Text="Жанр"/>
-                <TextBlock Text="Год выхода"/>
-                <TextBlock Text="ID исполнителя"/>
+                <TextBlock Foreground="White" Text="Название альбома"/>
+                <TextBlock Foreground="White" Text="Имя исполнителя"/>
+                <TextBlock Foreground="White" Text="Фамилия исполнителя"/>
+                <TextBlock Foreground="White" Text="Отчество исполнителя"/>
+                <TextBlock Foreground="White" Text="Количество композиций"/>
+                <TextBlock Foreground="White" Text="Жанр"/>
+                <TextBlock Foreground="White" Text="Год выхода"/>
+                <TextBlock Foreground="White" Text="ID исполнителя"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox x:Name="NameAlbomAdd" Margin="10"/>
-                <TextBox x:Name="NameSingerAlbom"/>
-                <TextBox x:Name="FamiliaSingerAlbom" Margin="15"/>
-                <TextBox x:Name="PatronymicSingerAlbom"/>
-                <TextBox x:Name="CountCompositionsAlbom" Margin="10"/>
-                <TextBox x:Name="Janr" Margin="10"/>
-                <TextBox x:Name="YearRelease" IsEnabled="False"/>
-                <TextBox x:Name="IDSingerAdd" Margin="10"/>
+                <TextBox x:Name="NameAlbomAdd" Margin="10" Text="{Binding NameAlbom}"/>
+                <TextBox x:Name="NameSingerAlbom" Text="{Binding NameSinger}"/>
+                <TextBox x:Name="FamiliaSingerAlbom" Margin="15" Text="{Binding FamiliaSinger}" />
+                <TextBox x:Name="PatronymicSingerAlbom" Text="{Binding PatronymicSinger}"/>
+                <TextBox x:Name="CountCompositionsAlbom" Margin="10" Text="{Binding CountCompositions}"/>
+                <TextBox x:Name="Janr" Margin="10" Text="{Binding Janr}"/>
+                <TextBox x:Name="YearRelease" IsEnabled="False" Text="{Binding YearRelease}"/>
+                <TextBox x:Name="IDSingerAdd" Margin="10" Text="{Binding idSinger}"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
                 <DatePicker x:Name="DateReleasePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="DateReleasePicker_SelectedDateChanged"/>

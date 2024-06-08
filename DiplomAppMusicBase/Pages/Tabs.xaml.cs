@@ -46,17 +46,7 @@ namespace DiplomAppMusicBase.Pages
                 AddDogovor.IsEnabled = false;
                 ListSingers.IsEnabled = false;
             }
-            else
-            {
-                PeopleBox.IsEnabled = true;
-                AddOrder.IsEnabled = true;
-                GoToTirage.IsEnabled = true;
-                GoToAlbom.IsEnabled = true;
-                AddDogovor.IsEnabled = true;
-                ListSingers.IsEnabled = true;
-            }
-
-            if (Manager.IsRole == 3)
+            if (Manager.IsRole == 1)
             {
                 PeopleBox.IsEnabled = true;
                 ListenInstruments.IsEnabled = true;
@@ -70,17 +60,17 @@ namespace DiplomAppMusicBase.Pages
             {
                 PeopleBox.IsEnabled = true;
                 ListenInstruments.IsEnabled = true;
-                AddDogovor.IsEnabled = false;
+                AddDogovor.IsEnabled = true;
                 AddOrder.IsEnabled = false;
                 GoToTirage.IsEnabled = true;
                 GoToAlbom.IsEnabled = false;
                 ListSingers.IsEnabled = true;
             }
-            if (Manager.IsRole == 1)
+            if (Manager.IsRole == 3)
             {
                 PeopleBox.IsEnabled = true;
                 ListenInstruments.IsEnabled = true;
-                AddDogovor.IsEnabled = true;
+                AddDogovor.IsEnabled = false;
                 AddOrder.IsEnabled = false;
                 GoToTirage.IsEnabled = false;
                 GoToAlbom.IsEnabled = false;
@@ -117,7 +107,7 @@ namespace DiplomAppMusicBase.Pages
             MessageBoxResult result = MessageBox.Show("Вы уверены что хотите сделать заказ?", "Подтвердите", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                Manager.MFrame.Navigate(new Pages.MakeOrder());
+                Manager.MFrame.Navigate(new Pages.MakeOrder(null));
             }
             else
             {
@@ -178,7 +168,7 @@ namespace DiplomAppMusicBase.Pages
             MessageBoxResult result = MessageBox.Show("Вы уверены что хотите добавить альбом?", "Подтвердите", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                Manager.MFrame.Navigate(new Pages.MakeAlbom());
+                Manager.MFrame.Navigate(new Pages.MakeAlbom(null));
             }
             else
             {

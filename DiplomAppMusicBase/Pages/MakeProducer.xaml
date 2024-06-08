@@ -25,12 +25,12 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock Text="Имя продюсера"/>
-                <TextBlock Text="Фамилия продюсера"/>
-                <TextBlock Text="Отчество продюсера"/>
-                <TextBlock Text="Никнейм"/>
-                <TextBlock Text="День рождения"/>
-                <TextBlock Text="Студия звукозаписи"/>
+                <TextBlock Text="Имя продюсера" Foreground="White"/>
+                <TextBlock Text="Фамилия продюсера" Foreground="White"/>
+                <TextBlock Text="Отчество продюсера" Foreground="White"/>
+                <TextBlock Text="Никнейм" Foreground="White"/>
+                <TextBlock Text="День рождения" Foreground="White"/>
+                <TextBlock Text="Студия звукозаписи" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox x:Name="NameProducer" Margin="10"/>

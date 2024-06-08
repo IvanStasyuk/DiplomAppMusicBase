@@ -25,30 +25,30 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock Text="Название заказа"/>
-                <TextBlock Text="Имя исполнителя"/>
-                <TextBlock Text="Фамилия исполнителя"/>
-                <TextBlock Text="Отчество исполнителя"/>
-                <TextBlock Text="Инструмент"/>
-                <TextBlock Text="Жанр"/>
-                <TextBlock Text="Эффект"/>
-                <TextBlock Text="Цена"/>
-                <TextBlock Text="Количество композиций"/>
-                <TextBlock Text="Дата начала"/>
-                <TextBlock Text="Дата конца"/>
+                <TextBlock Text="Название заказа" Foreground="White"/>
+                <TextBlock Text="Имя исполнителя" Foreground="White"/>
+                <TextBlock Text="Фамилия исполнителя" Foreground="White"/>
+                <TextBlock Text="Отчество исполнителя" Foreground="White"/>
+                <TextBlock Text="Инструмент" Foreground="White"/>
+                <TextBlock Text="Жанр" Foreground="White"/>
+                <TextBlock Text="Эффект" Foreground="White"/>
+                <TextBlock Text="Цена" Foreground="White"/>
+                <TextBlock Text="Количество композиций" Foreground="White"/>
+                <TextBlock Text="Дата начала" Foreground="White"/>
+                <TextBlock Text="Дата конца" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox x:Name="NameOrder" Margin="10"/>
-                <TextBox x:Name="NameSingerOrder"/>
-                <TextBox x:Name="FamiliaSingerOrder" Margin="15"/>
-                <TextBox x:Name="PatronymicSingerOrder"/>
-                <ComboBox x:Name="InstrumentOrder" Margin="10" SelectionChanged="InstrumentOrder_SelectionChanged"/>
-                <ComboBox x:Name="JanrOrder" Margin="10" SelectionChanged="JanrOrder_SelectionChanged"/>
-                <ComboBox x:Name="EffectOrder" Margin="10" SelectionChanged="EffectOrder_SelectionChanged"/>
-                <TextBox x:Name="ProfitOrder" IsEnabled="False"/>
-                <ComboBox x:Name="CountCompositionsOrder" Margin="10"/>
-                <TextBox x:Name="DataStartOrder" IsEnabled="False" GotFocus="DataStartOrder_GotFocus" Margin="10"/>
-                <TextBox x:Name="DataEndOrder" IsEnabled="False" GotFocus="DataEndOrder_GotFocus"/>
+                <TextBox x:Name="NameOrder" Text="{Binding NameOrder}" Margin="10"/>
+                <TextBox x:Name="NameSingerOrder" Text="{Binding NameSinger}"/>
+                <TextBox x:Name="FamiliaSingerOrder" Text="{Binding FamiliaSinger}" Margin="15"/>
+                <TextBox x:Name="PatronymicSingerOrder" Text="{Binding PatronymicSinger}"/>
+                <ComboBox x:Name="InstrumentOrder" Margin="10" Text="{Binding Instrument}" SelectionChanged="InstrumentOrder_SelectionChanged"/>
+                <ComboBox x:Name="JanrOrder" Margin="10" Text="{Binding Janr}" SelectionChanged="JanrOrder_SelectionChanged"/>
+                <ComboBox x:Name="EffectOrder" Margin="10" Text="{Binding Effect}" SelectionChanged="EffectOrder_SelectionChanged"/>
+                <TextBox x:Name="ProfitOrder" Text="{Binding Profit}" IsEnabled="False"/>
+                <ComboBox x:Name="CountCompositionsOrder" Text="{Binding CountCompositions}" Margin="10"/>
+                <TextBox x:Name="DataStartOrder" Text="{Binding DateStart}" IsEnabled="False" GotFocus="DataStartOrder_GotFocus" Margin="10"/>
+                <TextBox x:Name="DataEndOrder" Text="{Binding DateEnd}" IsEnabled="False" GotFocus="DataEndOrder_GotFocus"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,0">
                 <DatePicker x:Name="startDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="startDatePicker_SelectedDateChanged"/>

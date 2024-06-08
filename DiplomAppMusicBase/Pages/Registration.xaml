@@ -10,17 +10,17 @@
 
     <Grid x:Name="RegFon">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,200" >
-            <TextBlock Text="Логин"></TextBlock>
+            <TextBlock Text="Логин" Foreground="White"></TextBlock>
             <TextBox x:Name="TBLoginPage" HorizontalAlignment="Right"></TextBox>
-            <TextBlock Text="Пароль"></TextBlock>
+            <TextBlock Text="Пароль" Foreground="White"></TextBlock>
             <TextBox x:Name="TBPasswordPage" HorizontalAlignment="Right"></TextBox>
-            <TextBlock Text="Имя"></TextBlock>
+            <TextBlock Text="Имя" Foreground="White"></TextBlock>
             <TextBox x:Name="TBNamePage" HorizontalAlignment="Right"></TextBox>
-            <TextBlock Text="Фамилия"></TextBlock>
+            <TextBlock Text="Фамилия" Foreground="White"></TextBlock>
             <TextBox x:Name="TBFamiliaPage" HorizontalAlignment="Right"></TextBox>
-            <TextBlock Text="Отчество"></TextBlock>
+            <TextBlock Text="Отчество" Foreground="White"></TextBlock>
             <TextBox x:Name="TBPatronymicPage" HorizontalAlignment="Right"></TextBox>
-            <TextBlock Text="Роль"></TextBlock>
+            <TextBlock Text="Роль" Foreground="White"></TextBlock>
             <ComboBox x:Name="TBRolePage" HorizontalAlignment="Right"></ComboBox>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100">

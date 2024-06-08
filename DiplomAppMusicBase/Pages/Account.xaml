@@ -28,28 +28,28 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="3">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Имя: "></TextBlock>
-                <TextBlock x:Name="TBKnowName" Text="{Binding NameUser}"></TextBlock>
+                <TextBlock Text="Имя: " Foreground="White"></TextBlock>
+                <TextBlock x:Name="TBKnowName" Foreground="White" Text="{Binding NameUser}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-                <TextBlock Text="Фамилия: "></TextBlock>
-                <TextBlock x:Name="TBKnowFamilia" Text="{Binding FamiliaUser}"></TextBlock>
+                <TextBlock Text="Фамилия: " Foreground="White"></TextBlock>
+                <TextBlock x:Name="TBKnowFamilia" Foreground="White" Text="{Binding FamiliaUser}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Отчество: "></TextBlock>
-                <TextBlock x:Name="TBKnowPatronymic" Text="{Binding PatronymicUser}"></TextBlock>
+                <TextBlock Text="Отчество: " Foreground="White"></TextBlock>
+                <TextBlock x:Name="TBKnowPatronymic" Foreground="White" Text="{Binding PatronymicUser}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-                <TextBlock Text="Логин: "></TextBlock>
-                <TextBlock x:Name="TBKnowLogin" Text="{Binding Login}"></TextBlock>
+                <TextBlock Text="Логин: " Foreground="White"></TextBlock>
+                <TextBlock x:Name="TBKnowLogin" Foreground="White" Text="{Binding Login}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Пароль: "></TextBlock>
-                <TextBlock x:Name="TBKnowPassword" Text="{Binding Password}"></TextBlock>
+                <TextBlock Text="Пароль: " Foreground="White"></TextBlock>
+                <TextBlock x:Name="TBKnowPassword" Foreground="White" Text="{Binding Password}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-                <TextBlock Text="Роль: "></TextBlock>
-                <TextBlock x:Name="TBKnowRole" Text="{Binding idRole}"></TextBlock>
+                <TextBlock Text="Роль: " Foreground="White"></TextBlock>
+                <TextBlock x:Name="TBKnowRole" Foreground="White" Text="{Binding idRole}"></TextBlock>
             </StackPanel>
         </StackPanel>
         <Button x:Name="CanToGo" Content="Вернуться" Grid.Row="4" Grid.Column="2" Style="{StaticResource ButtonAdd}" Click="CanToGo_Click"></Button>

@@ -29,6 +29,15 @@ namespace DiplomAppMusicBase.Pages
             var bitmapMain = new BitmapImage(uriMainFon);
             ListSingersFon.Background = new ImageBrush(bitmapMain);
             ListSingersGrid.ItemsSource = MusicStudioBaseEntities.GetContext().Singers.ToList();
+            if (Manager.IsRole == 3)
+            {
+                RegButtonSinger.IsEnabled = false;
+                ListDelete.IsEnabled = false;
+            }
+            if (Manager.IsRole == 2)
+            {
+                ListDelete.IsEnabled = false;
+            }
         }
 
         private async void ListBack_Click(object sender, RoutedEventArgs e)

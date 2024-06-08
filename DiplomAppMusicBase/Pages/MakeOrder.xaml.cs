@@ -21,22 +21,25 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeOrder : Page
     {
+        private Orders _currentOrder = new Orders();
         private List<string> instruments = new List<string> { "Гитара", "Фортепиано", "Скрипка", "Саксофон", "Флейта", "Барабаны", "Труба", "Клавишные", "Голос", "Бас-гитара" };
         private List<string> janrs = new List<string> { "Поп", "Рок", "Металл", "Кантри", "Блюз", "Электронная", "Классическая", "Фанк", "Хаус", "Соул" };
         private List<string> effects = new List<string> { "Дилей", "Реверберация", "Фленжер", "Эхо", "Хорус", "Компрессия", "Дисторшн", "Эквализация", "Фазовращение", "Вокодер" };
         private List<int> countmusic = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 };
-        public MakeOrder()
+        public MakeOrder(Orders selectedOrder)
         {
             InitializeComponent();
             var uriMain = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMain);
             OrderFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Orders.ToList();
-
             InstrumentOrder.ItemsSource = instruments;
             JanrOrder.ItemsSource = janrs;
             EffectOrder.ItemsSource = effects;
             CountCompositionsOrder.ItemsSource = countmusic;
+            if (selectedOrder != null)
+                _currentOrder = selectedOrder;
+            DataContext = _currentOrder;
         }
 
         private async void DataStartOrder_GotFocus(object sender, RoutedEventArgs e)
@@ -106,49 +109,66 @@ namespace DiplomAppMusicBase.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (MusicStudioBaseEntities.GetContext().Orders.Count(y => y.NameOrder == NameOrder.Text) > 0)
+            var ReditingOrder = MusicStudioBaseEntities.GetContext().Orders.FirstOrDefault(y => y.NameOrder == NameOrder.Text);
+            if (ReditingOrder != null)
             {
-                await Task.Delay(500);
-                MessageBox.Show("Заказ уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            try
-            {
-                Orders UserOrder = new Orders()
-                {
-                    NameOrder = NameOrder.Text,
-                    NameSinger = NameSingerOrder.Text,
-                    FamiliaSinger = FamiliaSingerOrder.Text,
-                    PatronymicSinger = PatronymicSingerOrder.Text,
-                    Instrument = InstrumentOrder.Text,
-                    Janr = JanrOrder.Text,
-                    Effect = EffectOrder.Text,
-                    Profit = (decimal?)SqlMoney.Parse(ProfitOrder.Text),
-                    CountCompositions = int.Parse(CountCompositionsOrder.Text),
-                    DateStart = DateTime.Parse(DataStartOrder.Text),
-                    DateEnd = DateTime.Parse(DataEndOrder.Text)
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Orders.Add(UserOrder);
+                ReditingOrder.NameOrder = NameOrder.Text;
+                ReditingOrder.NameSinger = NameSingerOrder.Text;
+                ReditingOrder.FamiliaSinger = FamiliaSingerOrder.Text;
+                ReditingOrder.PatronymicSinger = PatronymicSingerOrder.Text;
+                ReditingOrder.Instrument = InstrumentOrder.Text;
+                ReditingOrder.Janr = JanrOrder.Text;
+                ReditingOrder.Effect = EffectOrder.Text;
+                ReditingOrder.Profit = (decimal?)SqlMoney.Parse(ProfitOrder.Text);
+                ReditingOrder.CountCompositions = int.Parse(CountCompositionsOrder.Text);
+                ReditingOrder.DateStart = DateTime.Parse(DataStartOrder.Text);
+                ReditingOrder.DateEnd = DateTime.Parse(DataEndOrder.Text);
+
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Заказ добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NameOrder.Text = "";
-                NameSingerOrder.Text = "";
-                FamiliaSingerOrder.Text = "";
-                PatronymicSingerOrder.Text = "";
-                InstrumentOrder.Text = "";
-                JanrOrder.Text = "";
-                EffectOrder.Text = "";
-                ProfitOrder.Text = "";
-                CountCompositionsOrder.Text = "";
-                DataStartOrder.Text = "";
-                DataEndOrder.Text = "";
+                MessageBox.Show("Заказ обновлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                Manager.MFrame.Navigate(new Pages.ListOrders());
             }
-            catch
-            {
-                await Task.Delay(500);
-                MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+            else
+            { 
+                try
+                {
+                    Orders UserOrder = new Orders()
+                    {
+                        NameOrder = NameOrder.Text,
+                        NameSinger = NameSingerOrder.Text,
+                        FamiliaSinger = FamiliaSingerOrder.Text,
+                        PatronymicSinger = PatronymicSingerOrder.Text,
+                        Instrument = InstrumentOrder.Text,
+                        Janr = JanrOrder.Text,
+                        Effect = EffectOrder.Text,
+                        Profit = (decimal?)SqlMoney.Parse(ProfitOrder.Text),
+                        CountCompositions = int.Parse(CountCompositionsOrder.Text),
+                        DateStart = DateTime.Parse(DataStartOrder.Text),
+                        DateEnd = DateTime.Parse(DataEndOrder.Text)
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Orders.Add(UserOrder);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Заказ добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NameOrder.Text = "";
+                    NameSingerOrder.Text = "";
+                    FamiliaSingerOrder.Text = "";
+                    PatronymicSingerOrder.Text = "";
+                    InstrumentOrder.Text = "";
+                    JanrOrder.Text = "";
+                    EffectOrder.Text = "";
+                    ProfitOrder.Text = "";
+                    CountCompositionsOrder.Text = "";
+                    DataStartOrder.Text = "";
+                    DataEndOrder.Text = "";
+                    Manager.MFrame.Navigate(new Pages.ListOrders());
+                }
+                catch
+                {
+                    await Task.Delay(500);
+                    MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         }
 

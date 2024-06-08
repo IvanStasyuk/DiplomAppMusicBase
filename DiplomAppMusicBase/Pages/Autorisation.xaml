@@ -24,7 +24,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Row="1">
-            <TextBlock Text="Календарь" Width="150" Height="30"></TextBlock>
+            <TextBlock Text="Календарь" Foreground="White" Width="150" Height="30"></TextBlock>
             <Calendar x:Name="calendar1" FirstDayOfWeek="Monday" SelectionMode="MultipleRange" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                 <Calendar.SelectedDates>
                     <sys:DateTime>01/9/2016</sys:DateTime>
@@ -34,13 +34,13 @@
             </Calendar>
         </StackPanel>
         <StackPanel Orientation="Vertical" Width="300" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1">
-            <TextBlock Text="Логин" Grid.Row="3"></TextBlock>
+            <TextBlock Text="Логин" Grid.Row="3" Foreground="White"></TextBlock>
             <TextBox x:Name="TBlogin" Margin="0,30,0,0"></TextBox>
-            <TextBlock Text="Пароль" Margin="0,30,0,0"></TextBlock>
+            <TextBlock Text="Пароль" Margin="0,30,0,0" Foreground="White"></TextBlock>
             <TextBox x:Name="TBPassword" Margin="0,30,0,0"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
-            <TextBlock Text="Введите капчу:"></TextBlock>
+            <TextBlock Text="Введите капчу: " Foreground="White"></TextBlock>
             <TextBlock x:Name="RandomCaptcha" Background="Gray"></TextBlock>
             <Button x:Name="RepeatCaptcha" Click="RepeatCaptcha_Click">
                 <Image Source="pack://application:,,,/Resources/imagerepeat.png" Height="20" Width="20"></Image>
