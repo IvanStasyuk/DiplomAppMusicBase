@@ -42,7 +42,7 @@
             <Setter Property="Width" Value="235"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="FontSize" Value="33"></Setter>
+            <Setter Property="FontSize" Value="10"></Setter>
             <Setter Property="FontFamily" Value="Fira Code"></Setter>
             <Setter Property="BorderThickness" Value="2"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
