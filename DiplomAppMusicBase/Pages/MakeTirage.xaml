@@ -38,17 +38,17 @@
                 <TextBlock Text="Инкассация" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox x:Name="NameTirage" Margin="10"/>
-                <TextBox x:Name="NameSingerTirage"/>
-                <TextBox x:Name="FamiliaSingerTirage" Margin="15"/>
-                <TextBox x:Name="PatronymicSingerTirage"/>
-                <TextBox x:Name="NameAlbomTirage" Margin="10"/>
-                <TextBox x:Name="CountAlbomsTirage" Margin="10" TextChanged="CountAlbomsTirage_TextChanged"/>
-                <TextBox x:Name="PriceOneAlbom" Margin="10" TextChanged="PriceOneAlbom_TextChanged"/>
-                <TextBox x:Name="CityTirage"/>
-                <TextBox x:Name="DataStartTirage" Margin="10" IsEnabled="False"/>
-                <TextBox x:Name="DataEndTirage"  Margin="10" IsEnabled="False"/>
-                <TextBox x:Name="ItogProfit" IsEnabled="False"/>
+                <TextBox x:Name="NameTirage" Text="{Binding NameTirage}" Margin="10"/>
+                <TextBox x:Name="NameSingerTirage" Text="{Binding NameSinger}"/>
+                <TextBox x:Name="FamiliaSingerTirage" Text="{Binding FamiliaSinger}" Margin="15"/>
+                <TextBox x:Name="PatronymicSingerTirage" Text="{Binding PatronymicSinger}"/>
+                <TextBox x:Name="NameAlbomTirage" Text="{Binding NameAlbom}" Margin="10"/>
+                <TextBox x:Name="CountAlbomsTirage" Text="{Binding CountAlboms}" Margin="10" TextChanged="CountAlbomsTirage_TextChanged"/>
+                <TextBox x:Name="PriceOneAlbom" Text="{Binding Price}" Margin="10" TextChanged="PriceOneAlbom_TextChanged"/>
+                <TextBox x:Name="CityTirage" Text="{Binding City}"/>
+                <TextBox x:Name="DataStartTirage" Text="{Binding TimeStart}" Margin="10" IsEnabled="False"/>
+                <TextBox x:Name="DataEndTirage" Text="{Binding TimeEnd}"  Margin="10" IsEnabled="False"/>
+                <TextBox x:Name="ItogProfit" Text="{Binding Profit}" IsEnabled="False"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
                 <DatePicker x:Name="startDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="startDatePicker_SelectedDateChanged"/>

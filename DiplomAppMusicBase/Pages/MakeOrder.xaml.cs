@@ -126,7 +126,6 @@ namespace DiplomAppMusicBase.Pages
 
                 MusicStudioBaseEntities.GetContext().SaveChanges();
                 MessageBox.Show("Заказ обновлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                Manager.MFrame.Navigate(new Pages.ListOrders());
             }
             else
             { 

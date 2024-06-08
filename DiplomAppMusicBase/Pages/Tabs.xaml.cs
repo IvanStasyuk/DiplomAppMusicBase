@@ -141,7 +141,7 @@ namespace DiplomAppMusicBase.Pages
             MessageBoxResult result = MessageBox.Show("Вы уверены что хотите выпустить тираж?", "Подтвердите", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                Manager.MFrame.Navigate(new Pages.MakeTirage());
+                Manager.MFrame.Navigate(new Pages.MakeTirage(null));
             }
             else
             {
