@@ -65,8 +65,9 @@ namespace DiplomAppMusicBase.Pages
             }
         }
 
-        private void RedButton_Click(object sender, RoutedEventArgs e)
+        private async void RedButton_Click(object sender, RoutedEventArgs e)
         {
+            await Task.Delay(500);
             Manager.MFrame.Navigate(new Pages.MakeOrder((sender as Button).DataContext as Orders));
         }
     }

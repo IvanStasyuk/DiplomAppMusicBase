@@ -77,7 +77,13 @@ namespace DiplomAppMusicBase.Pages
         private async void RegButtonSinger_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(500);
-            Manager.MFrame.Navigate(new Pages.RegistrationSinger());
+            Manager.MFrame.Navigate(new Pages.RegistrationSinger(null));
+        }
+
+        private async void RedBut_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(500);
+            Manager.MFrame.Navigate(new Pages.RegistrationSinger((sender as Button).DataContext as Singers));
         }
     }
 }

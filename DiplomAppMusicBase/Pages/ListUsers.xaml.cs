@@ -41,26 +41,5 @@ namespace DiplomAppMusicBase.Pages
                 Manager.MFrame = null;
             }
         }
-
-        private async void ListDelete_Click(object sender, RoutedEventArgs e)
-        {
-            await Task.Delay(500);
-            var UserRemoving = ListUsersGrid.SelectedItems.Cast<Users>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить {UserRemoving.Count()} элементов",
-                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                try
-                {
-                    MusicStudioBaseEntities.GetContext().Users.RemoveRange(UserRemoving);
-                    MusicStudioBaseEntities.GetContext().SaveChanges();
-                    MessageBox.Show("Данные удалены");
-                    ListUsersGrid.ItemsSource = MusicStudioBaseEntities.GetContext().Users.ToList();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-            }
-        }
     }
 }

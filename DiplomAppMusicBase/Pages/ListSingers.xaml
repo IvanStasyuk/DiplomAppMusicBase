@@ -36,6 +36,13 @@
                     <DataGridTextColumn Header="ID продюсера" Binding="{Binding idProducer}"></DataGridTextColumn>
                     <DataGridTextColumn Header="ID тиража" Binding="{Binding idTirage}"></DataGridTextColumn>
                     <DataGridTextColumn Header="ID заказа" Binding="{Binding idOrder}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="RedBut" Content="Редактировать" Click="RedBut_Click" Style="{StaticResource ButtonSettings}"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">

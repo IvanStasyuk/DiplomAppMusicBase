@@ -51,8 +51,9 @@ namespace DiplomAppMusicBase.Pages
             }
         }
 
-        private void PrintSave_Click(object sender, RoutedEventArgs e)
+        private async void PrintSave_Click(object sender, RoutedEventArgs e)
         {
+            await Task.Delay(500);
             PrintDialog printDialog = new PrintDialog();
             if (printDialog.ShowDialog() == true)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,12 +22,17 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class RegistrationSinger : Page
     {
-        public RegistrationSinger()
+        private Singers _currentSinger = new Singers();
+        public RegistrationSinger(Singers selectedSinger)
         {
             InitializeComponent();
             var uriMainFon = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMainFon);
             SingerRegFon.Background = new ImageBrush(bitmapMain);
+            DataContext = MusicStudioBaseEntities.GetContext().Singers.ToList();
+            if (selectedSinger != _currentSinger)
+                _currentSinger = selectedSinger;
+            DataContext = _currentSinger;
         }
 
         private async void ListBack_Click(object sender, RoutedEventArgs e)
@@ -69,45 +75,59 @@ namespace DiplomAppMusicBase.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (MusicStudioBaseEntities.GetContext().Singers.Count(y => y.Nickname == NicknameSinger.Text) > 0)
+            var ReditingSinger = MusicStudioBaseEntities.GetContext().Singers.FirstOrDefault(y => y.Nickname == NicknameSinger.Text);
+            if (ReditingSinger != null)
             {
-                await Task.Delay(500);
-                MessageBox.Show("Исполнитель уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            try
-            {
-                Singers SingerReg = new Singers()
-                {
-                    NameSinger = NameSingerReg.Text,
-                    FamiliaSinger = FamiliaSingerReg.Text,
-                    PatronymicSinger = PatronymicSingerReg.Text,
-                    Nickname = NicknameSinger.Text,
-                    YearBirthday = DateTime.Parse(YearBirthdaySingerReg.Text),
-                    idContract = int.Parse(IDContractReg.Text),
-                    idProducer = int.Parse(IDProducerReg.Text),
-                    idTirage = int.Parse(IDTirageReg.Text),
-                    idOrder = int.Parse(IDOrderReg.Text),
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Singers.Add(SingerReg);
+                ReditingSinger.NameSinger = NameSingerReg.Text;
+                ReditingSinger.FamiliaSinger = FamiliaSingerReg.Text;
+                ReditingSinger.PatronymicSinger = PatronymicSingerReg.Text;
+                ReditingSinger.Nickname = NicknameSinger.Text;
+                ReditingSinger.YearBirthday = DateTime.Parse(YearBirthdaySingerReg.Text);
+                ReditingSinger.idContract = int.Parse(IDContractReg.Text);
+                ReditingSinger.idProducer = int.Parse(IDProducerReg.Text);
+                ReditingSinger.idTirage = int.Parse(IDTirageReg.Text);
+                ReditingSinger.idOrder = int.Parse(IDOrderReg.Text);
+
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Исполнитель добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NameSingerReg.Text = "";
-                FamiliaSingerReg.Text = "";
-                PatronymicSingerReg.Text = "";
-                NicknameSinger.Text = "";
-                YearBirthdaySingerReg.Text = "";
-                IDContractReg.Text = "";
-                IDProducerReg.Text = "";
-                IDTirageReg.Text = "";
-                IDOrderReg.Text = "";
+                MessageBox.Show("Данные исполнителя обновлены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch
-            {
-                await Task.Delay(500);
-                MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+            else
+            { 
+                try
+                {
+                    Singers SingerReg = new Singers()
+                    {
+                        NameSinger = NameSingerReg.Text,
+                        FamiliaSinger = FamiliaSingerReg.Text,
+                        PatronymicSinger = PatronymicSingerReg.Text,
+                        Nickname = NicknameSinger.Text,
+                        YearBirthday = DateTime.Parse(YearBirthdaySingerReg.Text),
+                        idContract = int.Parse(IDContractReg.Text),
+                        idProducer = int.Parse(IDProducerReg.Text),
+                        idTirage = int.Parse(IDTirageReg.Text),
+                        idOrder = int.Parse(IDOrderReg.Text),
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Singers.Add(SingerReg);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Исполнитель добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NameSingerReg.Text = "";
+                    FamiliaSingerReg.Text = "";
+                    PatronymicSingerReg.Text = "";
+                    NicknameSinger.Text = "";
+                    YearBirthdaySingerReg.Text = "";
+                    IDContractReg.Text = "";
+                    IDProducerReg.Text = "";
+                    IDTirageReg.Text = "";
+                    IDOrderReg.Text = "";
+                    Manager.MFrame.Navigate(new Pages.ListSingers());
+                }
+                catch
+                {
+                    await Task.Delay(500);
+                    MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         }
 
