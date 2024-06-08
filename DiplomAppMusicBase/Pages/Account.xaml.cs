@@ -67,7 +67,7 @@ namespace DiplomAppMusicBase.Pages
         private async void AddNewProducer_Click(object sender, RoutedEventArgs e)
         {
             await Task.Delay(500);
-            Manager.MFrame.Navigate(new Pages.MakeProducer());
+            Manager.MFrame.Navigate(new Pages.MakeProducer(null));
         }
 
         private async void AddNewMusicStudio_Click(object sender, RoutedEventArgs e)

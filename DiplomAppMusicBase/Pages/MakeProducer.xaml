@@ -33,12 +33,12 @@
                 <TextBlock Text="Студия звукозаписи" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox x:Name="NameProducer" Margin="10"/>
-                <TextBox x:Name="FamiliaProducer"/>
-                <TextBox x:Name="PatronymicProducer" Margin="15"/>
-                <TextBox x:Name="NicknameProducer" Margin="10"/>
-                <TextBox x:Name="YearBirthdayProducer" IsEnabled="False"/>
-                <TextBox x:Name="NameMusicStudio" Margin="10"/>
+                <TextBox x:Name="NameProducer" Text="{Binding NameProducer}" Margin="10"/>
+                <TextBox x:Name="FamiliaProducer" Text="{Binding FamiliaProducer}"/>
+                <TextBox x:Name="PatronymicProducer" Text="{Binding PatronymicProducer}" Margin="15"/>
+                <TextBox x:Name="NicknameProducer" Text="{Binding Nickname}" Margin="10"/>
+                <TextBox x:Name="YearBirthdayProducer" Text="{Binding YearBirthday}" IsEnabled="False"/>
+                <TextBox x:Name="NameMusicStudio" Text="{Binding NameStudio}" Margin="10"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
                 <DatePicker x:Name="PickerBirthday" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="PickerBirthday_SelectedDateChanged"/>

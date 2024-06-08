@@ -33,6 +33,13 @@
                     <DataGridTextColumn Header="Никнейм продюсера" Binding="{Binding Nickname}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Год рождения продюсера" Binding="{Binding YearBirthday}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Студия звукозаписи" Binding="{Binding NameStudio}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="RedBut" Content="Редактировать" Click="RedBut_Click" Style="{StaticResource ButtonSettings}"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">

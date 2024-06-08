@@ -62,5 +62,10 @@ namespace DiplomAppMusicBase.Pages
                 }
             }
         }
+
+        private void RedBut_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MFrame.Navigate(new Pages.MakeProducer((sender as Button).DataContext as Producers));
+        }
     }
 }

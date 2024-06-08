@@ -21,13 +21,17 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeProducer : Page
     {
-        public MakeProducer()
+        private Producers _currentProducer = new Producers();
+        public MakeProducer(Producers selectedProducer)
         {
             InitializeComponent();
             var uriMain = new Uri("pack://application:,,,/Resources/greyfonpeople.png");
             var bitmapMain = new BitmapImage(uriMain);
             AddProducerFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Producers.ToList();
+            if (selectedProducer != null)
+                _currentProducer = selectedProducer;
+            DataContext = _currentProducer;
         }
 
         private async void PickerBirthday_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -58,40 +62,50 @@ namespace DiplomAppMusicBase.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (MusicStudioBaseEntities.GetContext().Producers.Count(y => y.Nickname == NicknameProducer.Text) > 0)
+            var ReditingProducer = MusicStudioBaseEntities.GetContext().Producers.FirstOrDefault(y => y.Nickname == NicknameProducer.Text);
+            if (ReditingProducer != null)
             {
-                await Task.Delay(500);
-                MessageBox.Show("Продюсер уже существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            try
-            {
-                Producers newProducer = new Producers()
-                {
-                    NameProducer = NameProducer.Text,
-                    FamiliaProducer = FamiliaProducer.Text,
-                    PatronymicProducer = PatronymicProducer.Text,
-                    Nickname = NicknameProducer.Text,
-                    YearBirthday = DateTime.Parse(YearBirthdayProducer.Text),
-                    NameStudio = NameMusicStudio.Text
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Producers.Add(newProducer);
+                ReditingProducer.NameProducer = NameProducer.Text;
+                ReditingProducer.FamiliaProducer = FamiliaProducer.Text;
+                ReditingProducer.PatronymicProducer = PatronymicProducer.Text;
+                ReditingProducer.Nickname = NicknameProducer.Text;
+                ReditingProducer.YearBirthday = DateTime.Parse(YearBirthdayProducer.Text);
+                ReditingProducer.NameStudio = NameMusicStudio.Text;
+
                 MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Продюсер добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NameProducer.Text = "";
-                FamiliaProducer.Text = "";
-                PatronymicProducer.Text = "";
-                NicknameProducer.Text = "";
-                YearBirthdayProducer.Text = "";
-                NameMusicStudio.Text = "";
-                Manager.MFrame.Navigate(new Pages.ListProducers());
+                MessageBox.Show("Данные продюсера обновлены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch
-            {
-                await Task.Delay(500);
-                MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+            else
+            { 
+                try
+                {
+                    Producers newProducer = new Producers()
+                    {
+                        NameProducer = NameProducer.Text,
+                        FamiliaProducer = FamiliaProducer.Text,
+                        PatronymicProducer = PatronymicProducer.Text,
+                        Nickname = NicknameProducer.Text,
+                        YearBirthday = DateTime.Parse(YearBirthdayProducer.Text),
+                        NameStudio = NameMusicStudio.Text
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Producers.Add(newProducer);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Продюсер добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NameProducer.Text = "";
+                    FamiliaProducer.Text = "";
+                    PatronymicProducer.Text = "";
+                    NicknameProducer.Text = "";
+                    YearBirthdayProducer.Text = "";
+                    NameMusicStudio.Text = "";
+                    Manager.MFrame.Navigate(new Pages.ListProducers());
+                }
+                catch
+                {
+                    await Task.Delay(500);
+                    MessageBox.Show("Ошибка при добавлении данных!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
         }
 
