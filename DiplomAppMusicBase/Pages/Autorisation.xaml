@@ -37,7 +37,7 @@
             <TextBlock Text="Логин" Grid.Row="3" Foreground="White"></TextBlock>
             <TextBox x:Name="TBlogin" Margin="0,30,0,0"></TextBox>
             <TextBlock Text="Пароль" Margin="0,30,0,0" Foreground="White"></TextBlock>
-            <TextBox x:Name="TBPassword" Margin="0,30,0,0"></TextBox>
+            <PasswordBox x:Name="TBPassword" Margin="0,30,0,0"></PasswordBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock Text="Введите капчу: " Foreground="White"></TextBlock>

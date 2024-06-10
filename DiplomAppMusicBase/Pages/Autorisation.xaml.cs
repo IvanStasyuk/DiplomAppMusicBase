@@ -45,7 +45,7 @@ namespace DiplomAppMusicBase.Pages
                 RandomCaptcha.Text += randomChar;
             }
             TBlogin.Text = "";
-            TBPassword.Text = "";
+            TBPassword.Password = "";
             CaptchaInput.Text = "";
         }
 
@@ -66,7 +66,7 @@ namespace DiplomAppMusicBase.Pages
         {
             await Task.Delay(500);
             var LoginUser = MusicStudioBaseEntities.GetContext().Users.FirstOrDefault(y => y.Login == TBlogin.Text);
-            var PasswordUser = MusicStudioBaseEntities.GetContext().Users.FirstOrDefault(z => z.Password == TBPassword.Text);
+            var PasswordUser = MusicStudioBaseEntities.GetContext().Users.FirstOrDefault(z => z.Password == TBPassword.Password);
 
             try
             {
@@ -74,7 +74,7 @@ namespace DiplomAppMusicBase.Pages
 
                 if (string.IsNullOrEmpty(TBlogin.Text))
                     errors.AppendLine("Укажите логин");
-                if (string.IsNullOrEmpty(TBPassword.Text))
+                if (string.IsNullOrEmpty(TBPassword.Password))
                     errors.AppendLine("Укажите пароль");
                 if (errors.Length > 0)
                 {
@@ -82,15 +82,15 @@ namespace DiplomAppMusicBase.Pages
                     return;
                 }
 
-                var UserVhod = MusicStudioBaseEntities.GetContext().Users.FirstOrDefault(x => x.Login == TBlogin.Text && x.Password == TBPassword.Text);
+                var UserVhod = MusicStudioBaseEntities.GetContext().Users.FirstOrDefault(x => x.Login == TBlogin.Text && x.Password == TBPassword.Password);
                 if (LoginUser == null)
                 {
-                    MessageBox.Show("Логин введен с ошибками", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Логин введен неверно", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 else if (PasswordUser == null)
                 {
-                    MessageBox.Show("Пароль введен с ошибками", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Пароль введен неверно", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 if (CaptchaInput.Text == "")
