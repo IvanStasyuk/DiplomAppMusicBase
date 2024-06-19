@@ -70,6 +70,9 @@
     <Compile Include="CaptchaWindow.xaml.cs">
       <DependentUpon>CaptchaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CodeWindow.xaml.cs">
+      <DependentUpon>CodeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contracts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Page Include="CaptchaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CodeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

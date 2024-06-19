@@ -20,7 +20,7 @@
             <TextBox x:Name="TBFamiliaPage" HorizontalAlignment="Right"></TextBox>
             <TextBlock Text="Отчество" Foreground="White"></TextBlock>
             <TextBox x:Name="TBPatronymicPage" HorizontalAlignment="Right"></TextBox>
-            <TextBlock Text="Роль" Foreground="White"></TextBlock>
+            <TextBlock x:Name="TBRolePageText" Text="Роль" Foreground="White"></TextBlock>
             <ComboBox x:Name="TBRolePage" HorizontalAlignment="Right"></ComboBox>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100">

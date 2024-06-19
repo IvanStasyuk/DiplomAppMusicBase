@@ -29,6 +29,11 @@ namespace DiplomAppMusicBase.Pages
             RegFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Users.ToList();
             TBRolePage.ItemsSource = listroles;
+            if (Manager.IsRole == 3)
+            {
+                TBRolePageText.Visibility = Visibility.Hidden;
+                TBRolePage.Visibility = Visibility.Hidden;
+            }
         }
 
         private async void CanToGo_Click(object sender, RoutedEventArgs e)
@@ -58,14 +63,11 @@ namespace DiplomAppMusicBase.Pages
                 errors.AppendLine("Укажите логин пользователя");
             if (string.IsNullOrEmpty(TBPasswordPage.Text))
                 errors.AppendLine("Укажите пароль пользователя");
-            if (string.IsNullOrEmpty(TBRolePage.Text))
-                errors.AppendLine("Укажите роль для пользователя");
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
-
             if (MusicStudioBaseEntities.GetContext().Users.Count(y => y.Login == TBLoginPage.Text) > 0)
             {
                 await Task.Delay(500);
@@ -74,25 +76,50 @@ namespace DiplomAppMusicBase.Pages
             }
             try
             {
-                Users newReg = new Users()
+                if (Manager.IsRole == 3)
                 {
-                    NameUser = TBNamePage.Text,
-                    FamiliaUser = TBFamiliaPage.Text,
-                    PatronymicUser = TBPatronymicPage.Text,
-                    Login = TBLoginPage.Text,
-                    Password = TBPasswordPage.Text,
-                    idRole = int.Parse(TBRolePage.Text)
-                };
-                await Task.Delay(500);
-                MusicStudioBaseEntities.GetContext().Users.Add(newReg);
-                MusicStudioBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Пользователь добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                TBNamePage.Text = "";
-                TBFamiliaPage.Text = "";
-                TBPatronymicPage.Text = "";
-                TBLoginPage.Text = "";
-                TBPasswordPage.Text = "";
-                TBRolePage.Text = "";
+                    Users newReg = new Users()
+                    {
+                        NameUser = TBNamePage.Text,
+                        FamiliaUser = TBFamiliaPage.Text,
+                        PatronymicUser = TBPatronymicPage.Text,
+                        Login = TBLoginPage.Text,
+                        Password = TBPasswordPage.Text,
+                        idRole = 3
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Users.Add(newReg);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Пользователь добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    TBNamePage.Text = "";
+                    TBFamiliaPage.Text = "";
+                    TBPatronymicPage.Text = "";
+                    TBLoginPage.Text = "";
+                    TBPasswordPage.Text = "";
+                    TBRolePage.Text = "";
+                }
+                if (Manager.IsRole == 1)
+                {
+                    Users newReg = new Users()
+                    {
+                        NameUser = TBNamePage.Text,
+                        FamiliaUser = TBFamiliaPage.Text,
+                        PatronymicUser = TBPatronymicPage.Text,
+                        Login = TBLoginPage.Text,
+                        Password = TBPasswordPage.Text,
+                        idRole = int.Parse(TBRolePage.Text)
+                    };
+                    await Task.Delay(500);
+                    MusicStudioBaseEntities.GetContext().Users.Add(newReg);
+                    MusicStudioBaseEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Пользователь добавлен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    TBNamePage.Text = "";
+                    TBFamiliaPage.Text = "";
+                    TBPatronymicPage.Text = "";
+                    TBLoginPage.Text = "";
+                    TBPasswordPage.Text = "";
+                    TBRolePage.Text = "";
+                }
             }
             catch
             {

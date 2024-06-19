@@ -46,7 +46,7 @@ namespace DiplomAppMusicBase.Pages
                 AddDogovor.IsEnabled = false;
                 ListSingers.IsEnabled = false;
             }
-            if (Manager.IsRole == 1)
+            if (Manager.IsRoleAdministrator == 1)
             {
                 PeopleBox.IsEnabled = true;
                 ListenInstruments.IsEnabled = true;
@@ -56,7 +56,7 @@ namespace DiplomAppMusicBase.Pages
                 GoToAlbom.IsEnabled = true;
                 ListSingers.IsEnabled = true;
             }
-            if (Manager.IsRole == 2)
+            if (Manager.IsRoleManager == 2)
             {
                 PeopleBox.IsEnabled = true;
                 ListenInstruments.IsEnabled = true;
@@ -66,7 +66,7 @@ namespace DiplomAppMusicBase.Pages
                 GoToAlbom.IsEnabled = false;
                 ListSingers.IsEnabled = true;
             }
-            if (Manager.IsRole == 3)
+            if (Manager.IsRoleClient == 3)
             {
                 PeopleBox.IsEnabled = true;
                 ListenInstruments.IsEnabled = true;

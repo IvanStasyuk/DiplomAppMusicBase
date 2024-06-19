@@ -1,0 +1,27 @@
+﻿<Window x:Class="DiplomAppMusicBase.CodeWindow" Icon="/Resources/studio.png"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomAppMusicBase"
+        mc:Ignorable="d"
+        Title="Введите код" Height="250" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <TextBlock Text="Введите код:" Grid.ColumnSpan="2"></TextBlock>
+        </StackPanel>
+        <TextBox x:Name="codeIn" Grid.ColumnSpan="2" Grid.RowSpan="2" ></TextBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2">
+            <Button x:Name="codeInEnter" Content="Войти" Style="{StaticResource ButtonEnter}" Grid.Row="1" Grid.ColumnSpan="2" Click="codeInEnter_Click" Margin="2"/>
+            <Button x:Name="codeOutEnter" Content="Не имеется" Style="{StaticResource ButtonAdd}" Grid.Row="1" Grid.ColumnSpan="2" Click="codeOutEnter_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

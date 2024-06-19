@@ -27,7 +27,7 @@
             <StackPanel>
                 <TextBlock Text="Размер тиража" Foreground="White"/>
                 <TextBlock Text="Имя исполнителя" Foreground="White"/>
-                <TextBlock Text="Фамилия тиража" Foreground="White"/>
+                <TextBlock Text="Фамилия исполнителя" Foreground="White"/>
                 <TextBlock Text="Отчество исполнителя" Foreground="White"/>
                 <TextBlock Text="Название альбома" Foreground="White"/>
                 <TextBlock Text="Количество альбомов" Foreground="White"/>

@@ -22,6 +22,7 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeContract : Page
     {
+        private List<string> experience = new List<string> { "Имеется", "Не имеется" };
         private Contracts _currentContract = new Contracts();
         public MakeContract(Contracts selectedContract)
         {
@@ -30,6 +31,7 @@ namespace DiplomAppMusicBase.Pages
             var bitmapMain = new BitmapImage(uriMain);
             ContractFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Contracts.ToList();
+            ExperienceTB.ItemsSource = experience;
             if (selectedContract != null)
                 _currentContract = selectedContract;
             DataContext = _currentContract;

@@ -20,8 +20,10 @@ namespace DiplomAppMusicBase
     {
         static public Frame MFrame;
         public static bool IsGuest { get; set; }
-
         public static int IsRole { get; set; }
+        public static int IsRoleAdministrator { get; set; }
+        public static int IsRoleManager { get; set; }
+        public static int IsRoleClient { get; set; }
         public static Grid GridBackground;
         public class InstrumentsList
         {
