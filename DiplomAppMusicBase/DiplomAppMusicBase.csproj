@@ -342,6 +342,7 @@
   <ItemGroup>
     <Resource Include="Resources\fonenter.jpg" />
     <Resource Include="Resources\imagerepeat.png" />
+    <Resource Include="Resources\studio.png" />
     <Content Include="Sounds\music_bassguitar.wav" />
     <Content Include="Sounds\music_voice.wav" />
     <Resource Include="Images_instruments\image_violin.png" />
@@ -365,7 +366,6 @@
     </Resource>
     <Resource Include="Images_instruments\image_guitar.png" />
     <Resource Include="Resources\TextLogo.png" />
-    <Resource Include="Resources\audioDef.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -376,13 +376,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\addpeoplefon.jpg" />
-    <Content Include="Resources\blueWallpaper.jfif" />
     <Resource Include="Resources\blueWallpaper.png" />
-    <Content Include="Resources\greenWallpaper.jfif" />
     <Resource Include="Resources\greenWallpaper.png" />
     <Resource Include="Resources\greyfonpeople.png" />
-    <Content Include="Resources\grownWallpaper.jfif" />
     <Resource Include="Resources\grownWallpaper.png" />
     <Resource Include="Resources\imagestudio.png" />
     <Resource Include="Resources\peoplebox.png" />
@@ -391,11 +387,7 @@
     <Resource Include="Resources\peoplefilesave.png" />
     <Resource Include="Resources\peoplefilesettings.png" />
     <Resource Include="Resources\peopleUser.png" />
-    <Content Include="Resources\redWallpaper.jfif" />
     <Resource Include="Resources\redWallpaper.png" />
-    <Resource Include="Resources\studio.png" />
-    <Resource Include="Resources\unknownAlbom.png" />
-    <Content Include="Resources\yellowWallpaper.jfif" />
     <Resource Include="Resources\yellowWallpaper.png" />
   </ItemGroup>
   <ItemGroup>
