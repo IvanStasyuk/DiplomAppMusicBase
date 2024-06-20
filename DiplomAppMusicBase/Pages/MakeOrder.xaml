@@ -23,16 +23,16 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel>
-                <TextBlock Text="Название заказа" Foreground="White"/>
-                <TextBlock Text="Имя исполнителя" Foreground="White"/>
-                <TextBlock Text="Фамилия исполнителя" Foreground="White"/>
-                <TextBlock Text="Отчество исполнителя" Foreground="White"/>
-                <TextBlock Text="Инструмент" Foreground="White"/>
-                <TextBlock Text="Жанр" Foreground="White"/>
-                <TextBlock Text="Эффект" Foreground="White"/>
-                <TextBlock Text="Цена" Foreground="White"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="5">
+                <TextBlock Text="Название заказа" Foreground="White" Margin="0,0,0,8"/>
+                <TextBlock Text="Имя исполнителя" Foreground="White" Margin="0,0,0,12"/>
+                <TextBlock Text="Фамилия исполнителя" Foreground="White" Margin="0,0,0,8"/>
+                <TextBlock Text="Отчество исполнителя" Foreground="White" Margin="0,0,0,16"/>
+                <TextBlock Text="Инструмент" Foreground="White" Margin="0,0,0,30"/>
+                <TextBlock Text="Жанр" Foreground="White" Margin="0,0,0,22"/>
+                <TextBlock Text="Эффект" Foreground="White" Margin="0,0,0,18"/>
+                <TextBlock Text="Цена" Foreground="White" Margin="0,0,0,15"/>
                 <TextBlock Text="Количество композиций" Foreground="White"/>
                 <TextBlock Text="Дата начала" Foreground="White"/>
                 <TextBlock Text="Дата конца" Foreground="White"/>

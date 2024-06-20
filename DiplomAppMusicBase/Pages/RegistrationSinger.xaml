@@ -28,7 +28,7 @@
             <TextBlock Text="ID продюсера" Foreground="White"></TextBlock>
             <TextBox x:Name="IDProducerReg" Text="{Binding idProducer}"></TextBox>
             <TextBlock Text="ID тиража" Foreground="White"></TextBlock>
-            <TextBox x:Name="IDTirageReg" Text="{Binding idProducer}"></TextBox>
+            <TextBox x:Name="IDTirageReg" Text="{Binding idTirage}"></TextBox>
             <TextBlock Text="ID заказа" Foreground="White"></TextBlock>
             <TextBox x:Name="IDOrderReg" Text="{Binding idOrder}"></TextBox>
         </StackPanel>

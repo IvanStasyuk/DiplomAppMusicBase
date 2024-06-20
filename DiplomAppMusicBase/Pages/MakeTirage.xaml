@@ -23,32 +23,32 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <TextBlock Text="Размер тиража" Foreground="White"/>
-                <TextBlock Text="Имя исполнителя" Foreground="White"/>
-                <TextBlock Text="Фамилия исполнителя" Foreground="White"/>
-                <TextBlock Text="Отчество исполнителя" Foreground="White"/>
-                <TextBlock Text="Название альбома" Foreground="White"/>
-                <TextBlock Text="Количество альбомов" Foreground="White"/>
-                <TextBlock Text="Цена за 1 альбом" Foreground="White"/>
-                <TextBlock Text="Город" Foreground="White"/>
-                <TextBlock Text="Дата начала тиража" Foreground="White"/>
-                <TextBlock Text="Дата конца тиража" Foreground="White"/>
-                <TextBlock Text="Инкассация" Foreground="White"/>
+                <TextBlock Text="Размер тиража" Foreground="White" Margin="15"/>
+                <TextBlock Text="Имя исполнителя" Foreground="White" Margin="15"/>
+                <TextBlock Text="Фамилия исполнителя" Foreground="White" Margin="10"/>
+                <TextBlock Text="Отчество исполнителя" Foreground="White" Margin="10"/>
+                <TextBlock Text="Название альбома" Foreground="White" Margin="10"/>
+                <TextBlock Text="Количество альбомов" Foreground="White" Margin="10"/>
+                <TextBlock Text="Цена за 1 альбом" Foreground="White" Margin="10"/>
+                <TextBlock Text="Город" Foreground="White" Margin="13"/>
+                <TextBlock Text="Дата начала тиража" Foreground="White" Margin="10"/>
+                <TextBlock Text="Дата конца тиража" Foreground="White" Margin="10"/>
+                <TextBlock Text="Инкассация" Foreground="White" Margin="10"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ComboBox x:Name="NameTirage" Text="{Binding NameTirage}" Margin="10"/>
-                <TextBox x:Name="NameSingerTirage" Text="{Binding NameSinger}"/>
+                <ComboBox x:Name="NameTirage" Text="{Binding NameTirage}" Margin="15"/>
+                <TextBox x:Name="NameSingerTirage" Text="{Binding NameSinger}" Margin="15"/>
                 <TextBox x:Name="FamiliaSingerTirage" Text="{Binding FamiliaSinger}" Margin="15"/>
-                <TextBox x:Name="PatronymicSingerTirage" Text="{Binding PatronymicSinger}"/>
-                <TextBox x:Name="NameAlbomTirage" Text="{Binding NameAlbom}" Margin="10"/>
-                <TextBox x:Name="CountAlbomsTirage" Text="{Binding CountAlboms}" Margin="10" TextChanged="CountAlbomsTirage_TextChanged"/>
-                <TextBox x:Name="PriceOneAlbom" Text="{Binding Price}" Margin="10" TextChanged="PriceOneAlbom_TextChanged"/>
-                <TextBox x:Name="CityTirage" Text="{Binding City}"/>
-                <TextBox x:Name="DataStartTirage" Text="{Binding TimeStart}" Margin="10" IsEnabled="False"/>
-                <TextBox x:Name="DataEndTirage" Text="{Binding TimeEnd}"  Margin="10" IsEnabled="False"/>
-                <TextBox x:Name="ItogProfit" Text="{Binding Profit}" IsEnabled="False"/>
+                <TextBox x:Name="PatronymicSingerTirage" Text="{Binding PatronymicSinger}" Margin="15"/>
+                <TextBox x:Name="NameAlbomTirage" Text="{Binding NameAlbom}" Margin="15"/>
+                <TextBox x:Name="CountAlbomsTirage" Text="{Binding CountAlboms}" Margin="15" TextChanged="CountAlbomsTirage_TextChanged"/>
+                <TextBox x:Name="PriceOneAlbom" Text="{Binding Price}" Margin="15" TextChanged="PriceOneAlbom_TextChanged"/>
+                <TextBox x:Name="CityTirage" Text="{Binding City}" Margin="15"/>
+                <TextBox x:Name="DataStartTirage" Text="{Binding TimeStart}" Margin="15" IsEnabled="False"/>
+                <TextBox x:Name="DataEndTirage" Text="{Binding TimeEnd}" Margin="15" IsEnabled="False"/>
+                <TextBox x:Name="ItogProfit" Text="{Binding Profit}" Margin="15" IsEnabled="False"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,45">
                 <DatePicker x:Name="startDatePicker" Visibility="Visible" Grid.RowSpan="3" Height="40" Width="30" SelectedDateChanged="startDatePicker_SelectedDateChanged"/>

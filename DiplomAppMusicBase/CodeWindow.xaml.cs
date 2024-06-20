@@ -39,7 +39,7 @@ namespace DiplomAppMusicBase
             }
             else if (codeIn.Text == "ABCD")
             {
-                MessageBox.Show("Код верен!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Код верен!", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
                 Manager.IsRole = 1;
                 Manager.MFrame.Navigate(new Pages.Registration());
