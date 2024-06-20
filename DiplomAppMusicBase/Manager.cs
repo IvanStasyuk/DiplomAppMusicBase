@@ -33,7 +33,7 @@ namespace DiplomAppMusicBase
             {
                 get
                 {
-                    return string.Format("{0} ₽", PriceInstrument);
+                    return string.Format("{0:f2} ₽", PriceInstrument);
                 }
             }
         }
@@ -45,7 +45,7 @@ namespace DiplomAppMusicBase
             {
                 get
                 {
-                    return string.Format("{0} ₽", PriceJanr);
+                    return string.Format("{0:f2} ₽", PriceJanr);
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace DiplomAppMusicBase
             {
                 get
                 {
-                    return string.Format("{0} ₽", PriceEffect);
+                    return string.Format("{0:f2} ₽", PriceEffect);
                 }
             }
         }

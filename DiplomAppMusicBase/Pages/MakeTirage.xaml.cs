@@ -21,6 +21,7 @@ namespace DiplomAppMusicBase.Pages
     /// </summary>
     public partial class MakeTirage : Page
     {
+        private List<string> countirage = new List<string> { "Крупный", "Средний", "Малый" };
         private Tirage _currentTirage = new Tirage();
         public MakeTirage(Tirage selectedTirage)
         {
@@ -29,6 +30,7 @@ namespace DiplomAppMusicBase.Pages
             var bitmapMain = new BitmapImage(uriMain);
             TirageFon.Background = new ImageBrush(bitmapMain);
             DataContext = MusicStudioBaseEntities.GetContext().Tirage.ToList();
+            NameTirage.ItemsSource = countirage;
             if (selectedTirage != null)
                 _currentTirage = selectedTirage;
             DataContext = _currentTirage;

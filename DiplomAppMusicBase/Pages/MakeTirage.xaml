@@ -38,7 +38,7 @@
                 <TextBlock Text="Инкассация" Foreground="White"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBox x:Name="NameTirage" Text="{Binding NameTirage}" Margin="10"/>
+                <ComboBox x:Name="NameTirage" Text="{Binding NameTirage}" Margin="10"/>
                 <TextBox x:Name="NameSingerTirage" Text="{Binding NameSinger}"/>
                 <TextBox x:Name="FamiliaSingerTirage" Text="{Binding FamiliaSinger}" Margin="15"/>
                 <TextBox x:Name="PatronymicSingerTirage" Text="{Binding PatronymicSinger}"/>
