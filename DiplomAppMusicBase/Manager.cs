@@ -61,5 +61,25 @@ namespace DiplomAppMusicBase
                 }
             }
         }
+        public class PasswordConverter : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                string password = value as string;
+
+                if (password != null)
+                {
+                    // Заменяем фактические символы пароля звездочками
+                    return new string('*', password.Length);
+                }
+
+                return DependencyProperty.UnsetValue;
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }
