@@ -69,7 +69,6 @@ namespace DiplomAppMusicBase
 
                 if (password != null)
                 {
-                    // Заменяем фактические символы пароля звездочками
                     return new string('*', password.Length);
                 }
 
